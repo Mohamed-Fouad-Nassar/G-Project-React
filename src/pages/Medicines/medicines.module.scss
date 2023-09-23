@@ -1,0 +1,145 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.container {
+  .sec-body {
+    .med {
+      position: relative;
+      .filter {
+        @extend %border-radius-5;
+        @extend %flex-center-center;
+        padding: var(--sec-element-padding, 10px);
+        position: absolute;
+        top: -50px;
+        right: 0;
+        display: none;
+        border: none;
+        width: calc(var(--main-element-padding, 20px) * 2);
+        height: calc(var(--main-element-padding, 20px) * 2);
+        cursor: pointer;
+        z-index: 10;
+        background-color: var(--main-bg);
+        .f-icon {
+          color: var(--sec-text-color);
+          font-size: 1.5rem;
+        }
+      }
+      .side-bar {
+        @extend %border-radius-5;
+        display: none;
+        position: absolute;
+        top: -50px;
+        right: calc(var(--main-element-padding, 20px) * 2);
+        z-index: 10;
+        padding: var(--field-top-padding, 7px);
+        background-color: var(--main-bg);
+        width: 200px;
+        height: 30rem;
+        color: var(--black-color);
+        h2 {
+          color: var(--black-color);
+          font-size: 1.7rem;
+          margin: 0;
+          margin-bottom: var(--main-element-padding, 20px);
+        }
+        ul {
+          @extend %reset;
+          li {
+            @extend %border-radius-5;
+            padding: var(--sec-element-padding, 10px)
+              var(--field-top-padding, 7px);
+            cursor: pointer;
+          }
+          .active {
+            color: var(--const-white-color);
+            background-color: var(--main-color);
+          }
+        }
+      }
+      .cards {
+        gap: var(--main-element-padding, 20px);
+        position: relative;
+        @extend %flex-start-between;
+        .left-side {
+          @extend %border-radius-5;
+          padding: var(--main-element-padding, 20px)
+            var(--sec-element-padding, 10px);
+          background-color: var(--main-bg);
+          width: 200px;
+          color: var(--black-color);
+          @media (min-width: 768px) {
+            position: sticky;
+            top: 90px;
+          }
+          h2 {
+            font-size: 1.4rem;
+            margin: 0;
+            margin-bottom: var(--main-element-padding, 20px);
+          }
+          ul {
+            @extend %reset;
+            li {
+              a {
+                @extend %border-radius-5;
+                padding: var(--sec-element-padding, 10px);
+                display: block;
+                width: 100%;
+                margin-bottom: 4px;
+                color: var(--black-color);
+                &:hover {
+                  color: var(--main-color);
+                  background-color: var(--sec-bg);
+                }
+              }
+              &.active {
+                a {
+                  color: var(--main-color);
+                  background-color: var(--sec-bg);
+                }
+              }
+            }
+          }
+        }
+        .right-side {
+          overflow: hidden;
+          flex: 1;
+          padding: 0;
+          @extend %grid-300-20;
+        }
+      }
+    }
+  }
+}
+
+.open {
+  display: block !important;
+  h2 {
+    font-size: 1.2rem !important;
+  }
+  ul {
+    li {
+      font-size: 0.9rem !important;
+    }
+  }
+}
+
+//media
+@media (max-width: 767px) {
+  .sec-body .med {
+    .filter {
+      display: flex !important;
+    }
+    .left-side {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: -5px;
+      z-index: 10;
+      background-color: var(--main-bg) !important;
+      box-shadow: var(--main-box-shadow);
+    }
+    .right-side {
+      width: 100% !important;
+    }
+  }
+}

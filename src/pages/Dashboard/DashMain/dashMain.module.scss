@@ -1,0 +1,27 @@
+@use "../../../assets/global_scss/variables" as *;
+@use "../../../assets/global_scss/helpers" as *;
+
+.content {
+  @extend %border-radius-5;
+  @include grid(600px, $main-element-padding);
+  @media (max-width: 1580px) {
+    @include grid(500px, $main-element-padding);
+  }
+  @media (max-width: 1380px) {
+    @include grid(400px, $main-element-padding);
+  }
+  @media (max-width: 1199px) {
+    @include grid(420px, $main-element-padding);
+  }
+  @media (max-width: 575px) {
+    @include grid(250px, $main-element-padding);
+  }
+  background-color: var(--main-bg);
+  padding: var(--main-element-padding, 20px);
+  flex: 1;
+  overflow-y: auto;
+  > div {
+    width: 100%;
+    padding: var(--main-element-padding, 20px);
+  }
+}

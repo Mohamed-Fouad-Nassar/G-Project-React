@@ -1,0 +1,6 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.sec-foot {
+  padding-top: var(--up-down-padding, 100px);
+}

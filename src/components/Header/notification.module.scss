@@ -1,0 +1,43 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.notification {
+  @extend %flex-center-center;
+  height: 100%;
+  position: relative;
+
+  .h-btn {
+    padding: 0 var(--sec-element-padding, 10px);
+    a {
+      @extend %flex-center-center;
+      @extend %border-radius-50;
+      width: calc(var(--main-element-padding) * 2);
+      height: calc(var(--main-element-padding) * 2);
+      background-color: var(--main-bg);
+      position: relative;
+      &::after {
+        @extend %flex-center-center;
+        @extend %border-radius-50;
+        content: attr(data-number);
+        position: absolute;
+        top: -7px;
+        right: -7px;
+        background-color: var(--main-color);
+        color: $white-color;
+        width: var(--main-element-padding);
+        height: var(--main-element-padding);
+        z-index: 1000;
+      }
+      &:hover {
+        background-color: var(--nav-hover-bg);
+        .f-icon {
+          color: var(--main-color);
+        }
+      }
+      .f-icon {
+        color: var(--black-color);
+        font-size: 1.05rem;
+      }
+    }
+  }
+}

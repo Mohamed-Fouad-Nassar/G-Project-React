@@ -1,0 +1,8 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.contact {
+  @extend %flex-center-start;
+  gap: $sec-element-padding;
+  flex-wrap: nowrap;
+}

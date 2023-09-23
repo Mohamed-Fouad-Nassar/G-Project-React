@@ -1,0 +1,129 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.content {
+  @extend %border-radius-5;
+  background-color: var(--main-bg);
+  overflow: hidden;
+  flex: 1;
+  .top-sec {
+    @extend %grid-200-20;
+    align-items: center;
+    padding: var(--main-element-padding, 20px);
+    min-width: 300px;
+    max-width: 700px;
+    margin: 0 auto;
+    @media (max-width: 991px) {
+      min-width: initial;
+      @include grid(350px, 0);
+    }
+    @media (max-width: 575px) {
+      @include grid(250px, 0);
+    }
+    .image {
+      @extend %border-radius-50;
+      width: 150px;
+      height: 150px;
+      overflow: hidden;
+      margin: 0 auto;
+      @media (max-width: 767px) {
+        width: 170px;
+        height: 170px;
+      }
+      img {
+        width: 100%;
+      }
+    }
+    .text {
+      text-align: center;
+      h2 {
+        color: var(--black-color);
+        padding-top: var(--main-element-padding, 20px);
+        font-size: 1.5em;
+      }
+      span {
+        font-size: 1.2rem;
+        color: var(--sec-text-color);
+      }
+    }
+    .edit-btn {
+      @extend %flex-center-;
+      flex-direction: column;
+      gap: var(--sec-element-padding, 10px);
+      padding-top: 30px;
+      a {
+        @include button-shape(var(--main-color), "light");
+        @extend %flex-center-center;
+        gap: var(--sec-element-padding, 10px);
+        &:hover {
+          .f-icon,
+          span {
+            color: var(--main-color);
+          }
+        }
+        .f-icon,
+        span {
+          color: var(--const-white-color);
+        }
+      }
+    }
+  }
+  .bottom-sec {
+    flex: 1;
+    padding: var(--main-element-padding, 20px);
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      height: 1px;
+      width: calc(100% - 40px);
+      background-color: var(--sec-bg);
+    }
+    .box {
+      padding-bottom: var(--main-element-padding, 20px);
+      &:last-of-type {
+        padding: 0;
+      }
+      label {
+        display: block;
+        font-size: 1.05rem;
+        padding-bottom: var(--sec-element-padding, 10px);
+        color: var(--sec-text-color);
+        font-weight: 500;
+      }
+      .field {
+        @extend %flex-center-center;
+        gap: var(--sec-element-padding, 10px);
+        color: var(--main-color);
+        font-size: 1.5rem;
+        flex-wrap: wrap;
+        span {
+          @extend %border-radius-5;
+          flex: 1;
+          font-size: 1rem;
+          padding: var(--sec-element-padding, 10px)
+            var(--main-element-padding, 20px);
+          background-color: var(--sec-bg);
+          color: var(--black-color);
+          display: block;
+          text-align: center;
+        }
+        .left-sec,
+        .right-sec {
+          flex: 1;
+        }
+        .flex-sec {
+          width: calc((100% - 20px) / 3);
+          @media (max-width: 1199px) {
+            width: calc((100% - 10px) / 2);
+          }
+          @media (max-width: 991px) {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

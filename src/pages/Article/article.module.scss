@@ -1,0 +1,71 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.container {
+  @extend %flex-center-center;
+  gap: var(--main-element-padding, 20px);
+  @media (max-width: 991px) {
+    flex-direction: column;
+  }
+  .article {
+    width: 100%;
+    position: relative;
+    @media (max-width: 991px) {
+      width: 100%;
+    }
+    h1,
+    h2 {
+      color: var(--main-color);
+    }
+    h1 {
+      padding: 15px;
+      width: 90%;
+      text-align: center;
+      font-size: 1.5rem;
+    }
+    h2 {
+      font-size: 1.2rem;
+      margin-bottom: var(--sec-element-padding, 10px);
+    }
+    .image {
+      img {
+        width: 100%;
+      }
+    }
+    .info {
+      display: block;
+      padding: var(--sec-element-padding, 10px) 15px 0;
+      font-size: 0.9rem;
+      color: var(--sec-text-color);
+      span {
+        color: var(--main-color);
+      }
+    }
+    .article-body {
+      padding: var(--main-element-padding, 20px)
+        calc(var(--main-element-padding, 20px) * 2);
+      white-space: break-spaces;
+      font: inherit;
+      margin: 0;
+      color: var(--sec-text-color);
+      @media (max-width: 767px) {
+        padding: var(--main-element-padding, 20px) 15px;
+      }
+    }
+    .other {
+      border-top: 1px solid var(--main-bg);
+      margin-top: var(--main-element-padding, 20px);
+      padding: var(--main-element-padding, 20px) {
+        bottom: var(--sec-element-padding, 10px);
+      }
+      .head {
+        h2 {
+          padding: 0 var(--main-element-padding, 20px)
+            var(--sec-element-padding, 10px);
+          font-size: 1.5rem;
+          color: var(--main-color);
+        }
+      }
+    }
+  }
+}

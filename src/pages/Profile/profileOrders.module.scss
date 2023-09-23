@@ -1,0 +1,162 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.content {
+  @extend %border-radius-5;
+  flex: 1;
+  background-color: var(--main-bg);
+  padding: var(--main-element-padding, 20px);
+  overflow: hidden;
+  position: relative;
+  h2 {
+    font-size: 1.3rem;
+    text-align: center;
+    color: var(--sec-color);
+    margin-bottom: var(--sec-element-padding, 10px);
+  }
+  h3 {
+    font-size: 1.1rem;
+    color: var(--sec-color);
+    margin-bottom: var(--sec-element-padding, 10px);
+  }
+  .filter {
+    padding-bottom: var(--main-element-padding, 20px);
+    ul {
+      @extend %flex-center-center;
+      flex-wrap: wrap;
+      gap: var(--sec-element-padding, 10px);
+      li {
+        a {
+          @extend %border-radius-5;
+          display: block;
+          width: fit-content;
+          padding: var(--field-top-padding, 7px)
+            var(--sec-element-padding, 10px);
+          background-color: transparent;
+          color: var(--main-color);
+          border: 1px solid var(--main-color);
+          &:hover {
+            background-color: var(--main-color);
+            color: var(--const-white-color);
+          }
+        }
+        &.active {
+          a {
+            background-color: var(--sec-color);
+            color: var(--const-white-color);
+            border-color: var(--sec-color);
+          }
+        }
+      }
+    }
+  }
+  .sec-body {
+    .order {
+      @extend %border-radius-5;
+      padding: var(--main-element-padding, 20px);
+      background-color: var(--sec-bg);
+      position: relative;
+      margin-top: var(--main-element-padding, 20px);
+      &::after {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: var(--sec-bg);
+      }
+      &:first-of-type {
+        margin-top: 0;
+        &::after {
+          display: none;
+        }
+      }
+      > div {
+        @extend %border-radius-5;
+        padding: var(--main-element-padding, 20px);
+        background-color: var(--main-bg);
+      }
+      .order-info {
+        margin-bottom: var(--main-element-padding, 20px);
+        .order-info-cont {
+          @media (max-width: 575px) {
+            flex-direction: column;
+            width: 100%;
+          }
+          @extend %flex-center-start;
+          gap: var(--main-element-padding, 20px);
+          .image {
+            height: 100px;
+            width: 100px;
+            img {
+              max-width: 100%;
+            }
+            @media (max-width: 991px) {
+              height: 115px;
+              width: 115px;
+            }
+          }
+          .grid {
+            @include grid(165px, 10px);
+            flex: 1;
+            @media (max-width: 575px) {
+              width: 100%;
+            }
+            article {
+              @extend %flex-center-center;
+              flex-direction: column;
+              gap: 10px;
+              span {
+                color: var(--black-color);
+                &:last-of-type {
+                  font-size: 1.5rem;
+                  font-weight: 600;
+                  color: var(--main-color);
+                }
+              }
+            }
+          }
+        }
+      }
+      .order-cont {
+        .order-cont-cont {
+          @include grid(250px, var(--sec-element-padding, 10px));
+          .box {
+            @extend %flex-center-center;
+            gap: var(--sec-element-padding, 10px);
+            padding: var(--sec-element-padding, 10px);
+            background-color: var(--sec-bg);
+            .image {
+              width: 70px;
+              height: 70px;
+              img {
+                max-width: 100%;
+              }
+            }
+            .info {
+              @extend %flex-start-center;
+              flex-direction: column;
+              flex: 1;
+              gap: var(--sec-element-padding, 10px);
+              span {
+                &:first-of-type {
+                  color: var(--black-color);
+                  font-weight: 500;
+                }
+                &:last-of-type {
+                  font-size: 0.9rem;
+                  font-weight: 400;
+                  color: var(--sec-text-color);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .sec-foot {
+    padding-top: 30px;
+  }
+}

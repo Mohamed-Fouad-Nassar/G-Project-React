@@ -1,0 +1,31 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.slider {
+  overflow: hidden;
+  padding: 0 var(--field-top-padding)
+    calc(var(--main-element-padding, 20px) * 2);
+  .slides {
+    width: 100%;
+  }
+  .swiper-navBtn {
+    @extend %border-radius-50;
+    height: calc(var(--main-element-padding, 20px) * 2);
+    width: calc(var(--main-element-padding, 20px) * 2);
+    color: var(--const-white-color);
+    background-color: var(--main-color);
+    &:hover {
+      background-color: var(--sec-color);
+    }
+    &::before,
+    &::after {
+      font-size: 1rem;
+      bottom: -25px;
+    }
+  }
+  .swiper-pagination-bullet {
+    > span {
+      background-color: var(--main-color);
+    }
+  }
+}

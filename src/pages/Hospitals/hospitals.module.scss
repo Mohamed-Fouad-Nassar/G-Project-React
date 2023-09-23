@@ -1,0 +1,8 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.container {
+  .sec-body {
+    @extend %grid-350-20;
+  }
+}

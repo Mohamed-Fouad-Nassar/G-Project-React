@@ -1,0 +1,35 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.box {
+  @extend %border-radius-5;
+  background-color: var(--sec-bg);
+  padding: var(--main-element-padding, 20px);
+  .head {
+    h2 {
+      margin-bottom: calc(var(--main-element-padding, 20px) * 2);
+      position: relative;
+      color: var(--main-color);
+      font: {
+        size: 1.6rem;
+        weight: 600;
+      }
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        height: 3px;
+        background-color: var(--sec-color);
+      }
+      &::before {
+        width: 95px;
+        bottom: -8px;
+      }
+      &::after {
+        width: 50px;
+        bottom: -15px;
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.nav {
+  @extend %flex-center-between;
+  @media (max-width: 767px) {
+    grid-area: navLinK;
+    border-top: 1px solid var(--main-bg);
+  }
+  ul {
+    display: flex;
+    gap: var(--sec-element-padding, 10px);
+    @media (max-width: 991px) {
+      margin: 0 auto;
+      gap: var(--main-element-padding, 20px);
+    }
+    @media (max-width: 450px) {
+      gap: var(--sec-element-padding, 10px);
+    }
+  }
+}

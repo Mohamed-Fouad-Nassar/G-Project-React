@@ -1,0 +1,26 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.main {
+  @extend %flex-stretch-start;
+  background-color: var(--sec-bg);
+  padding: var(--up-down-padding, 100px) var(--main-element-padding, 20px)
+    calc(var(--main-element-padding, 20px) * 2);
+  gap: var(--main-element-padding, 20px);
+  @media (max-width: 767px) {
+    padding: 150px var(--sec-element-padding, 10px) 30px;
+    gap: 15px;
+  }
+
+  // .content {
+  //   @extend %border-radius-5;
+  //   @extend %flex-center-center;
+  //   background-color: var(--main-bg);
+  //   flex: 1;
+  //   overflow-y: auto;
+  //   > div {
+  //     width: 100%;
+  //     padding: var(--main-element-padding, 20px);
+  //   }
+  // }
+}

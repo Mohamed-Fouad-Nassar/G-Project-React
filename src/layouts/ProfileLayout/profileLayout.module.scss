@@ -1,0 +1,14 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.container {
+  padding: var(--main-element-padding, 20px);
+  display: flex;
+  justify-content: flex-start;
+  gap: var(--main-element-padding, 20px);
+  position: relative;
+  padding-bottom: calc(var(--up-down-padding, 100px) / 2);
+  @media (max-width: 575px) {
+    gap: var(--sec-element-padding, 10px);
+  }
+}

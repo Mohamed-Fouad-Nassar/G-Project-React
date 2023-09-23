@@ -1,0 +1,91 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.contacts {
+  padding: var(--up-down-padding, 100px) 0;
+  position: relative;
+  background-image: url(../../assets/images/contact_us/contact-bg.jpg);
+  z-index: 0;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--transparent-main-color);
+    z-index: -1;
+    opacity: 0.9;
+  }
+  .container {
+    color: var(--const-white-color);
+    .sec-body {
+      @extend %flex-start-between;
+      gap: var(--main-element-padding, 20px);
+      @media (max-width: 767px) {
+        flex-direction: column;
+        gap: var(--up-down-padding, 100px);
+      }
+      h2 {
+        margin-bottom: var(--main-element-padding, 20px);
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+      .sec-left {
+        width: 50%;
+        @media (max-width: 767px) {
+          width: 100%;
+        }
+        > section {
+          &:last-of-type {
+            padding-top: calc(var(--main-element-padding, 20px) * 2);
+            a {
+              width: 45px !important;
+              height: 45px !important;
+            }
+          }
+        }
+      }
+      .sec-right {
+        width: 50%;
+        @media (max-width: 767px) {
+          width: 100%;
+        }
+        form {
+          input,
+          textarea {
+            caret-color: var(--const-white-color);
+            width: 100%;
+            color: var(--const-white-color);
+            background-color: var(--main-color);
+            resize: none;
+            border: none;
+            outline: none;
+            border-bottom: 2px solid var(--const-white-color);
+            @include placeholder-color(var(--const-white-color));
+            &:focus {
+              @include placeholder-color(transparent);
+            }
+          }
+          input {
+            padding: var(--sec-element-padding, 10px)
+              var(--main-element-padding, 20px);
+            margin-bottom: var(--main-element-padding, 20px);
+          }
+          textarea {
+            padding: var(--main-element-padding, 20px);
+            min-height: 250px;
+          }
+          button {
+            margin-top: var(--main-element-padding, 20px);
+            margin-right: 0;
+            &:hover {
+              color: var(--const-white-color);
+              border-color: var(--const-white-color);
+            }
+          }
+        }
+      }
+    }
+  }
+}

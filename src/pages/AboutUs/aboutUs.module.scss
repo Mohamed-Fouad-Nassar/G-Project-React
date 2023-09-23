@@ -1,0 +1,11 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.container {
+  .sec-body {
+    @extend %grid-350-20;
+    @media (max-width: 575px) {
+      @include grid(280px, var(--main-element-padding, 20px));
+    }
+  }
+}

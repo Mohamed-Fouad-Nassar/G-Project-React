@@ -1,0 +1,65 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.link {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--main-color);
+  }
+  &:hover::after {
+    width: 100%;
+  }
+  &.active {
+    background-color: var(--nav-active-bg);
+    &::after {
+      width: 100%;
+    }
+    a {
+      span,
+      .f-icon {
+        color: var(--main-color);
+      }
+    }
+  }
+  a {
+    @extend %flex-center-center;
+    height: 68px;
+    padding: {
+      right: var(--sec-element-padding, 10px);
+      left: var(--sec-element-padding, 10px);
+    }
+    &:hover {
+      span,
+      .f-icon {
+        color: var(--main-color);
+      }
+    }
+    @media (max-width: 767px) {
+      gap: var(--main-element-padding, 20px);
+      height: 50px;
+    }
+    .f-icon {
+      color: var(--black-color);
+      font-size: 1.4rem;
+      display: none;
+      @media (max-width: 991px) {
+        display: initial;
+      }
+    }
+    span {
+      color: var(--black-color);
+      @media (max-width: 1199px) {
+        font-size: 0.95rem;
+      }
+      @media (max-width: 991px) {
+        display: none;
+      }
+    }
+  }
+}

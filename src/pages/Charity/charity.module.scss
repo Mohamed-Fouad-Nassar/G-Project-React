@@ -1,0 +1,113 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.content {
+  position: relative;
+  padding-bottom: var(--main-element-padding, 20px);
+  > h1 {
+    padding: 15px;
+    width: calc(100% - 35px);
+    margin: 0 {
+      left: 35px;
+    }
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--main-color);
+  }
+  h2 {
+    color: var(--black-color);
+    text-align: center;
+    font-size: 1.4rem;
+    margin-bottom: var(--main-element-padding, 20px);
+  }
+  .upper-sec {
+    @extend %flex-start-center;
+    gap: var(--main-element-padding, 20px);
+    @media (max-width: 991px) {
+      flex-direction: column-reverse;
+      > article {
+        width: 100% !important;
+      }
+    }
+    .description {
+      padding-top: 30px;
+      width: calc(60% - var(--sec-element-padding, 10px));
+      @media (max-width: 991px) {
+        padding-top: var(--sec-element-padding, 10px);
+      }
+      .article-body {
+        color: var(--sec-text-color);
+        white-space: break-spaces;
+        font: inherit;
+        margin: 0;
+      }
+    }
+    .data {
+      @extend %border-radius-5;
+      background-color: var(--main-bg);
+      padding: var(--main-element-padding, 20px) {
+        top: 0;
+      }
+      margin-top: var(--up-down-padding, 100px);
+      position: relative;
+      width: calc(40% - var(--sec-element-padding, 10px));
+      .image {
+        @extend %border-radius-50;
+        @include trans-x(-50%);
+        width: calc(var(--up-down-padding, 100px) * 2);
+        height: calc(var(--up-down-padding, 100px) * 2);
+        overflow: hidden;
+        position: absolute;
+        top: -100px;
+        left: 50%;
+        img {
+          width: calc(var(--up-down-padding, 100px) * 2);
+          height: calc(var(--up-down-padding, 100px) * 2);
+          -o-object-fit: cover;
+          object-fit: cover;
+        }
+      }
+      .social-icon {
+        margin-top: 120px;
+        > div {
+          justify-content: center;
+        }
+      }
+      .contact-info {
+        &::before {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 1px;
+          left: 0;
+          top: 0;
+          background-color: var(--sec-bg);
+        }
+        position: relative;
+        padding-top: var(--main-element-padding, 20px);
+        margin-top: calc(var(--main-element-padding, 20px) * 2);
+      }
+    }
+  }
+  // .events,
+  .other {
+    padding-top: 30px;
+    h2 {
+      color: var(--main-color);
+      text-align: start;
+    }
+  }
+  // .events {
+  //   .body {
+  //     @extend %grid-250-20;
+  //     .image {
+  //       border: 5px solid var(--sec-bg);
+  //       img {
+  //         width: 100%;
+  //         height: 250px;
+  //         object-fit: cover;
+  //       }
+  //     }
+  //   }
+  // }
+}

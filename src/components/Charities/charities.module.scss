@@ -1,0 +1,12 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.charities {
+  padding: var(--up-down-padding, 100px) 0;
+  background-color: var(--sec-bg);
+  .container {
+    .sec-body {
+      position: relative;
+    }
+  }
+}

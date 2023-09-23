@@ -1,0 +1,87 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.box {
+  @extend %border-radius-5;
+  position: relative;
+  background-color: var(--main-bg);
+  padding: var(--main-element-padding, 20px) var(--main-element-padding, 20px)
+    30px;
+  display: block;
+
+  .avatar {
+    @extend %border-radius-50;
+    @include trans(var(--sec-element-padding, 10px), -50px);
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 130px;
+    height: 130px;
+    border: var(--field-top-padding, 7px) solid var(--sec-bg);
+    background-color: var(--sec-bg);
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: 130px;
+      -o-object-fit: cover;
+      object-fit: cover;
+    }
+  }
+  .data {
+    .head {
+      h3,
+      span {
+        width: calc(100% - 130px);
+      }
+      h3,
+      a {
+        font-size: 1.3rem;
+        margin: 0;
+      }
+      a {
+        color: var(--black-color);
+        &:hover {
+          color: var(--main-color);
+        }
+      }
+      span {
+        color: var(--sec-text-color);
+        font-size: 0.9rem;
+        padding: var(--sec-element-padding, 10px) 0
+          var(--main-element-padding, 20px);
+        display: block;
+      }
+      p {
+        margin: 0;
+        @include max-lines(3);
+        color: var(--sec-text-color);
+      }
+    }
+    .info {
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        left: 0;
+        background-color: var(--sec-bg);
+      }
+      &::before {
+        top: 0;
+      }
+      &::after {
+        bottom: 0;
+      }
+      position: relative;
+      padding: {
+        top: var(--main-element-padding, 20px);
+        bottom: var(--main-element-padding, 20px);
+      }
+      margin: {
+        top: var(--main-element-padding, 20px);
+        bottom: var(--main-element-padding, 20px);
+      }
+    }
+  }
+}

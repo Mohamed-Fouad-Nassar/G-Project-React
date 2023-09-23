@@ -1,0 +1,19 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.content {
+  @extend %border-radius-5;
+  background-color: var(--main-bg);
+  flex: 1;
+  overflow-x: hidden;
+  > div {
+    width: 100%;
+    padding: var(--main-element-padding, 20px);
+  }
+  .sec-body {
+    .control {
+      padding-top: $main-element-padding + $sec-element-padding;
+      overflow-x: auto;
+    }
+  }
+}

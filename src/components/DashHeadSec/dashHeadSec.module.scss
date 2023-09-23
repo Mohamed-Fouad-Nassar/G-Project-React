@@ -1,0 +1,30 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.sec-head {
+  h2 {
+    margin-bottom: 40px;
+    position: relative;
+    color: $main-color;
+    font: {
+      size: 1.6rem;
+      weight: 600;
+    }
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      height: 3px;
+      background-color: $sec-color;
+    }
+    &::before {
+      width: 95px;
+      bottom: -8px;
+    }
+    &::after {
+      width: 50px;
+      bottom: -15px;
+    }
+  }
+}

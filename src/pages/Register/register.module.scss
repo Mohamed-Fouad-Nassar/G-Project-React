@@ -1,0 +1,89 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.left {
+  width: 50%;
+  padding: var(--main-element-padding, 20px) {
+    top: calc(var(--up-down-padding, 100px) / 2);
+  }
+  @media (max-width: 767px) {
+    width: 100%;
+  }
+  .head {
+    text-align: center;
+    padding-bottom: var(--main-element-padding, 20px);
+    h2,
+    p {
+      margin: 0 {
+        bottom: var(--sec-element-padding, 10px);
+      }
+    }
+    h2 {
+      color: var(--main-color);
+    }
+    p {
+      color: var(--sec-text-color);
+      font-size: 0.9rem;
+    }
+  }
+  form {
+    .field {
+      @include formField();
+    }
+    .flex-sec {
+      @extend %flex-center-between;
+      gap: var(--main-element-padding, 20px);
+      > * {
+        flex: 1;
+      }
+    }
+    .check-box {
+      padding-bottom: var(--sec-element-padding, 10px);
+      input {
+        @include check-box-shape();
+      }
+      label {
+        cursor: pointer;
+        margin-left: var(--sec-element-padding, 10px);
+        a {
+          margin: 0 {
+            left: calc(var(--sec-element-padding, 10px) / 2);
+            right: calc(var(--sec-element-padding, 10px) / 2);
+          }
+          color: var(--sec-color);
+          &:hover {
+            color: var(--main-color);
+          }
+        }
+      }
+      .error-message {
+        display: block;
+        visibility: hidden;
+        text-transform: lowercase;
+        font-size: 0.95rem;
+        margin-top: calc(var(--sec-element-padding, 10px) / 2);
+        color: var(--danger-color);
+        &.active {
+          visibility: visible;
+        }
+      }
+    }
+  }
+  .reg-link {
+    @extend %flex-center-center;
+    padding-top: var(--main-element-padding, 20px);
+    padding-bottom: var(--main-element-padding, 20px);
+    span {
+      color: var(--black-color);
+      text-transform: lowercase;
+    }
+    a {
+      margin-left: 10px;
+      font-size: 0.9rem;
+      color: var(--sec-color);
+      &:hover {
+        color: var(--main-color);
+      }
+    }
+  }
+}

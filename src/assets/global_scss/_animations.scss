@@ -1,0 +1,42 @@
+@use "./variables" as *;
+@use "./helpers" as *;
+
+/* Start Animation Styling:- */
+
+@-webkit-keyframes up-down-btn {
+  from {
+    margin-top: 15px;
+  }
+  to {
+    margin-bottom: 15px;
+  }
+}
+
+@keyframes up-down-btn {
+  from {
+    margin-top: 15px;
+  }
+  to {
+    margin-bottom: 15px;
+  }
+}
+
+@-webkit-keyframes left-right-btn {
+  from {
+    margin-left: var(--sec-element-padding, 10px);
+  }
+  to {
+    margin-right: var(--sec-element-padding, 10px);
+  }
+}
+
+@keyframes left-right-btn {
+  from {
+    margin-left: var(--sec-element-padding, 10px);
+  }
+  to {
+    margin-right: var(--sec-element-padding, 10px);
+  }
+}
+
+/* End Animation Styling */

@@ -1,0 +1,26 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.container {
+  min-height: 90vh;
+  @media (max-width: 767px) {
+    margin: 0 var(--sec-element-padding, 10px);
+  }
+  h2 {
+    color: var(--main-color);
+    font-size: 1.4rem;
+    text-align: center;
+    padding-bottom: var(--main-element-padding, 20px);
+  }
+  .content {
+    @extend %flex-start-start;
+    gap: var(--main-element-padding, 20px);
+    position: relative;
+    .aside {
+      width: 280px;
+    }
+    .message {
+      flex: 1;
+    }
+  }
+}

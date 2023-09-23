@@ -1,0 +1,6 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.f-blog {
+  color: var(--sec-text-color);
+}

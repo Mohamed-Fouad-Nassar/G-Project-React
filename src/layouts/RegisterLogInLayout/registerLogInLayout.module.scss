@@ -1,0 +1,28 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.container {
+  @extend %flex-center-center;
+  background-color: var(--sec-bg);
+  min-height: 100vh;
+  position: relative;
+  .card {
+    @extend %border-radius-10;
+    max-width: 1100px;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    background-color: var(--main-bg);
+    box-shadow: var(--main-box-shadow);
+    @media (max-width: 767px) {
+      min-width: 360px;
+      max-width: 420px;
+    }
+    &.fit {
+      max-width: 600px;
+      min-width: 360px;
+    }
+  }
+}

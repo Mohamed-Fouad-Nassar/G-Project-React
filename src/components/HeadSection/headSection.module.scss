@@ -1,0 +1,71 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.sec-head {
+  padding-bottom: var(--up-down-padding, 100px);
+  text-align: center;
+  &.white-text {
+    h1,
+    h2,
+    p {
+      color: var(--const-white-color) !important;
+    }
+  }
+  h1,
+  h2 {
+    font-size: 1.8rem;
+    color: var(--main-color);
+    text-transform: uppercase;
+    margin: 0 {
+      bottom: var(--sec-element-padding, 10px);
+    }
+  }
+  p {
+    max-width: 750px;
+    font-size: 0.9rem;
+    color: var(--sec-text-color);
+    margin: 0 auto {
+      bottom: var(--main-element-padding, 20px);
+    }
+  }
+  .head-shape,
+  .head-shape-w {
+    max-width: 600px;
+    margin: auto;
+    position: relative;
+    span {
+      @extend %border-radius-50;
+      display: block;
+      margin: auto;
+      height: 14px;
+      width: 14px;
+      background-color: transparent;
+      border: 2px solid var(--sec-color);
+      &::after,
+      &::before {
+        @extend %translate-y-50;
+        content: "";
+        height: 2px;
+        width: calc(50% - 15px);
+        background-color: var(--sec-color);
+        position: absolute;
+        top: 50%;
+      }
+      &::before {
+        left: 5px;
+      }
+      &::after {
+        right: 5px;
+      }
+    }
+  }
+  .head-shape-w {
+    span {
+      border-color: var(--const-white-color);
+      &::after,
+      &::before {
+        background-color: var(--const-white-color);
+      }
+    }
+  }
+}

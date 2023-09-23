@@ -1,0 +1,21 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.logo {
+  width: 75px;
+  @media (max-width: 991px) {
+    width: 60px;
+  }
+  @media (max-width: 767px) {
+    grid-area: logo;
+    width: 70px;
+  }
+  // a {
+  //   h1 {
+  //     color: var(--main-color);
+  //     font-size: 2.5rem;
+  //     font-family: "Yesteryear", cursive;
+  //     margin: 0;
+  //   }
+  // }
+}

@@ -1,0 +1,29 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.field {
+  display: flex;
+  align-items: center;
+  gap: var(--sec-element-padding);
+  margin-bottom: var(--sec-element-padding);
+  &:last-of-type {
+    margin: 0;
+  }
+  div {
+    .f-icon {
+      @extend %flex-center-center;
+      @extend %border-radius-50;
+      width: 45px;
+      height: 45px;
+      background-color: var(--sec-color);
+      color: var(--const-white-color);
+      font-size: 1.5rem;
+    }
+  }
+  span {
+    color: var(--sec-text-color);
+    &.white-text {
+      color: var(--const-white-color) !important;
+    }
+  }
+}

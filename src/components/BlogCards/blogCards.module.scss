@@ -1,0 +1,45 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.box {
+  @extend %border-radius-5;
+  box-shadow: var(--main-box-shadow);
+  overflow: hidden;
+  .image {
+    img {
+      width: 100%;
+    }
+  }
+  .text {
+    padding: var(--sec-element-padding, 10px);
+    background-color: var(--main-bg);
+    a {
+      h3 {
+        color: var(--black-color);
+        padding-bottom: var(--sec-element-padding, 10px);
+        font: {
+          size: 1.2rem;
+          weight: 600;
+        }
+      }
+      &:hover {
+        cursor: pointer;
+        h3 {
+          color: var(--main-color);
+        }
+      }
+    }
+    p {
+      @include max-lines(2);
+      color: var(--sec-text-color);
+      margin-bottom: var(--sec-element-padding, 10px);
+      font-size: 0.9rem;
+    }
+    .info {
+      span {
+        color: var(--sec-text-color);
+        font-size: 0.9rem;
+      }
+    }
+  }
+}

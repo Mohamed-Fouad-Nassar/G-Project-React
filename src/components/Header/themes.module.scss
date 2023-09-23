@@ -1,0 +1,34 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.themes {
+  @extend %flex-center-center;
+  height: 100%;
+  position: relative;
+
+  .h-btn {
+    padding: 0 var(--sec-element-padding, 10px);
+    @extend %flex-center-center;
+    @extend %border-radius-50;
+    width: calc(var(--main-element-padding, 20px) * 2);
+    height: calc(var(--main-element-padding, 20px) * 2);
+    background-color: var(--main-bg);
+    cursor: pointer;
+    &:hover {
+      background-color: var(--nav-hover-bg);
+      .f-icon {
+        color: var(--main-color);
+      }
+    }
+    .f-icon {
+      color: var(--black-color);
+      font-size: 1.05rem;
+      &:first-of-type {
+        display: block;
+      }
+      &:last-of-type {
+        display: none;
+      }
+    }
+  }
+}

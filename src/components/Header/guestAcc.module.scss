@@ -1,0 +1,19 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.guest-account {
+  @extend %flex-center-center;
+  gap: var(--sec-element-padding, 10px);
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  @media (max-width: 767px) {
+    grid-area: account;
+  }
+  a {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content !important;
+    padding: var(--sec-element-padding, 10px) 15px;
+  }
+}

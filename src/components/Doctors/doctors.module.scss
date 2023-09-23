@@ -1,0 +1,12 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.doctors {
+  padding: var(--up-down-padding, 100px) 0;
+  background-color: var(--main-bg);
+  .container {
+    .sec-body {
+      @extend %grid-200-20;
+    }
+  }
+}

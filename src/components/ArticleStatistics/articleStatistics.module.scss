@@ -1,0 +1,49 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.statistics {
+  @extend %flex-center-center;
+  gap: var(--main-element-padding, 20px);
+  max-width: 300px;
+  margin: var(--main-element-padding, 20px) auto 0;
+  button {
+    @extend %flex-center-center;
+    @extend %border-radius-5;
+    gap: var(--sec-element-padding, 10px);
+    outline: none;
+    border: none;
+    background-color: transparent;
+    padding: var(--sec-element-padding, 10px);
+    &:hover {
+      background-color: var(--input-bg);
+    }
+    span {
+      color: var(--sec-text-color);
+      font-size: 1.4rem;
+    }
+    .f-icon {
+      color: var(--sec-text-color);
+      font-size: 1.6rem;
+      &:first-of-type {
+        display: block;
+      }
+      &:last-of-type {
+        display: none;
+      }
+    }
+    &.active {
+      span {
+        color: var(--black-color);
+      }
+      .f-icon {
+        color: var(--black-color);
+        &:first-of-type {
+          display: none;
+        }
+        &:last-of-type {
+          display: block;
+        }
+      }
+    }
+  }
+}

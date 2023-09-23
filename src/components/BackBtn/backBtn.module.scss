@@ -1,0 +1,22 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.back-btn {
+  position: absolute;
+  top: 17px;
+  left: 10px;
+  padding: var(--field-top-padding, 7px) var(--sec-element-padding, 10px);
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: var(--black-color);
+  cursor: pointer;
+  &:hover {
+    .f-icon {
+      color: var(--main-color);
+    }
+  }
+  .f-icon {
+    font-size: 1rem;
+  }
+}

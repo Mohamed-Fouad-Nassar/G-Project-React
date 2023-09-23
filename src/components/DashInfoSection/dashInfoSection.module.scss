@@ -1,0 +1,55 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.info {
+  @extend %flex-stretch-start;
+  max-width: 750px;
+  margin: 0 auto;
+  gap: var(--main-element-padding, 20px);
+  @media (max-width: 575px) {
+    flex-direction: column;
+    gap: var(--sec-element-padding, 10px);
+  }
+  &.reverse {
+    > section {
+      background-color: var(--sec-bg);
+    }
+  }
+  > section {
+    @extend %border-radius-10;
+    background-color: var(--main-bg);
+    width: 50%;
+    padding: var(--main-element-padding, 20px);
+    text-align: center;
+    @media (max-width: 575px) {
+      width: 100%;
+    }
+    h3 {
+      color: var(--black-color);
+      margin-bottom: var(--sec-element-padding, 10px);
+      font: {
+        size: 1.2rem;
+        weight: 600;
+      }
+    }
+    span {
+      color: var(--main-color);
+      display: block;
+      padding-top: var(--field-top-padding, 7px);
+      font: {
+        size: 1.7rem;
+        weight: 700;
+      }
+    }
+    a {
+      .f-icon {
+        font-size: 2.6rem;
+        color: var(--main-color);
+        cursor: pointer;
+        &:hover {
+          color: var(--sec-color);
+        }
+      }
+    }
+  }
+}

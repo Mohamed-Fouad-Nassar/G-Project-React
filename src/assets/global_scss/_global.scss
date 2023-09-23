@@ -1,0 +1,289 @@
+@use "./variables" as *;
+@use "./helpers" as *;
+@use "./animations" as *;
+
+/* Start Global Rules:- */
+
+* {
+  @extend %transition;
+  box-sizing: border-box;
+  text-transform: capitalize;
+  font-family: "Open Sans", sans-serif;
+  background-position: center;
+  background-size: cover;
+  line-height: 1.5 !important;
+}
+
+.mail {
+  text-transform: lowercase;
+}
+
+html {
+  scrollbar-color: var(--main-color) var(--white-color);
+  scroll-behavior: smooth;
+}
+
+body {
+  @extend %reset;
+}
+
+// .box,
+// .card {
+//   @extend %border-radius-5;
+// }
+
+::after,
+::before {
+  @extend %transition;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600 !important;
+}
+
+a {
+  @extend %link;
+  &:hover {
+    color: var(--main-color);
+  }
+}
+
+.f-icon,
+i {
+  transition: 0s !important;
+  -webkit-transition: 0s !important;
+  -moz-transition: 0s !important;
+  -ms-transition: 0s !important;
+  -o-transition: 0s !important;
+}
+
+ul {
+  list-style: none;
+  @extend %reset;
+  li {
+    @extend %reset;
+  }
+}
+
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button,
+a {
+  cursor: pointer;
+}
+
+input[type="email"],
+input[type="text"],
+input[type="password"] {
+  text-transform: none !important;
+}
+
+input {
+  caret-color: var(--main-color);
+}
+
+.container {
+  padding-left: var(--sec-element-padding, 10px);
+  padding-right: var(--sec-element-padding, 10px);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Start Media Quires:- */
+
+@media (max-width: 575px) {
+  .container {
+    padding: 0 var(--sec-element-padding, 10px);
+    width: 100%;
+  }
+}
+
+@media (min-width: 576px) {
+  .container {
+    width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container {
+    width: 1320px;
+  }
+}
+
+/* End Media Quires */
+
+/* Start Selection Styling:- */
+
+::-moz-selection {
+  background: var(--const-black-color);
+  color: var(--main-color);
+}
+
+::selection {
+  background: var(--const-black-color);
+  color: var(--main-color);
+}
+
+/* End Selection Styling */
+
+/* Start Scroll Bar Styling:- */
+
+::-webkit-scrollbar {
+  width: var(--sec-element-padding, 10px);
+  height: var(--sec-element-padding, 10px);
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--white-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--main-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--sec-color);
+}
+
+/* End Scroll Bar Styling */
+
+/* Start Top Button Styling:- */
+main {
+  // padding-top: 68px;
+  // @media (max-width: 767px) {
+  //   padding-top: 150px !important;
+  // }
+  // .top {
+  //   display: none;
+  //   position: fixed;
+  //   bottom: 15px;
+  //   right: 15px;
+  //   z-index: 100000;
+  //   a {
+  //     @extend %flex-center-center;
+  //     width: $main-element-padding * 2;
+  //     height: $main-element-padding * 2;
+  //     background-color: $main-color;
+  //     border: 2px solid $main-color;
+  //     font-size: 1.5rem;
+  //     i {
+  //       color: $white-color;
+  //     }
+  //     &:hover {
+  //       background-color: $white-color;
+  //       border-color: $main-color;
+  //       i {
+  //         color: $main-color;
+  //       }
+  //     }
+  //   }
+  // }
+}
+
+.dark {
+  // dark mode on top button
+  main {
+    // .top {
+    //   a {
+    //     background-color: $main-dark-color;
+    //     border-color: $main-dark-color;
+    //     i {
+    //       color: $white-dark-color;
+    //     }
+    //     &:hover {
+    //       background-color: $sec-dark-bg;
+    //       border-color: $main-dark-color;
+    //       i {
+    //         color: $main-dark-color;
+    //       }
+    //     }
+    //   }
+    // }
+  }
+}
+
+/* End Top Button Styling */
+
+/* Start Error message and Success sign Styling:- */
+
+body.dark {
+  .error-message {
+    @include error-sign("dark");
+    border-bottom-color: #ff3c3cde !important;
+    span:first-of-type {
+      background-color: #ff3c3cde !important;
+    }
+  }
+}
+
+.error-message {
+  @include error-sign("light");
+  border-bottom-color: #fb0505 !important;
+  span:first-of-type {
+    background-color: #fb0505 !important;
+  }
+}
+
+.success-message {
+  @extend %success-sign;
+  border-bottom-color: #1ad922 !important;
+  span:first-of-type {
+    background-color: #1ad922 !important;
+  }
+}
+
+/* End Error message and Success sign Styling */
+
+main {
+  background-color: var(--sec-bg);
+  position: relative;
+  min-height: 100vh;
+  > .container {
+    padding: {
+      top: var(--up-down-padding, 100px);
+      bottom: calc(var(--up-down-padding, 100px) / 2);
+    }
+    @media (max-width: 767px) {
+      padding-top: 150px !important;
+    }
+  }
+}

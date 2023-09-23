@@ -1,0 +1,43 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.item {
+  // @include table-body-item();
+
+  padding-top: 2px;
+  @include table-head();
+  > span {
+    background-color: var(--sec-bg);
+    color: var(--sec-text-color);
+    font: {
+      size: 1rem !important;
+      weight: 500 !important;
+    }
+    &:last-of-type {
+      @extend %flex-center-between;
+      padding: var(--field-top-padding, 7px) var(--sec-element-padding, 10px);
+      gap: var(--sec-element-padding, 10px);
+      a,
+      button {
+        @extend %border-radius-5;
+        @extend %ni-flex-center-center;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        color: var(--const-white-color);
+        width: 30px;
+        height: 30px;
+        background-color: var(--main-color);
+        &:hover {
+          background-color: var(--sec-color);
+        }
+        &.danger {
+          background-color: var(--danger-color);
+          &:hover {
+            background-color: var(--danger-hover-color);
+          }
+        }
+      }
+    }
+  }
+}

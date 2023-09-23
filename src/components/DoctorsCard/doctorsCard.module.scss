@@ -1,0 +1,57 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.box {
+  @extend %border-radius-5;
+  box-shadow: var(--main-box-shadow);
+  position: relative;
+  overflow: hidden;
+  @media (max-width: 575px) {
+    max-width: 250px;
+    margin: auto;
+  }
+  &:hover {
+    .info {
+      bottom: 0;
+    }
+    img {
+      @include scale(1.1);
+    }
+  }
+  img {
+    width: 100%;
+    height: 100%;
+  }
+  .info {
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    width: 100%;
+    background-color: var(--transparent-color);
+    padding: var(--sec-element-padding, 10px);
+    h5 {
+      font-size: 1rem;
+      color: $main-color;
+      margin-bottom: var(--sec-element-padding, 10px);
+    }
+    p {
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+      color: var(--sec-text-color);
+    }
+    .contact {
+      @extend %flex-center-center;
+      gap: var(--sec-element-padding, 10px);
+      flex-wrap: nowrap;
+      > div {
+        a {
+          width: 30px !important;
+          height: 30px !important;
+          i {
+            font-size: 1.1rem !important;
+          }
+        }
+      }
+    }
+  }
+}

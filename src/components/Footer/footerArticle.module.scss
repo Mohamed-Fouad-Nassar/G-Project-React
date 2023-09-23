@@ -1,0 +1,40 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.article {
+  padding: var(--sec-element-padding, 10px) 0;
+  border-bottom: 1px solid var(--max-dark-white-color);
+  &:last-of-type {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  a {
+    h4 {
+      margin: {
+        bottom: calc(var(--sec-element-padding, 10px) / 2);
+        top: var(--sec-element-padding, 10px);
+      }
+      @include max-lines(1);
+      font-size: 1.1rem;
+      letter-spacing: 1.5px;
+      color: var(--const-white-color);
+    }
+    &:hover {
+      h4 {
+        color: var(--main-color);
+      }
+    }
+  }
+  p {
+    color: var(--footer-sec-text-color);
+    font-size: 0.85rem;
+    margin-bottom: 5px;
+    @include max-lines(3);
+  }
+  .info {
+    span {
+      font-size: 0.9rem;
+      color: var(--max-dark-white-color);
+    }
+  }
+}

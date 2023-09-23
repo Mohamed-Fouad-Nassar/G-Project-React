@@ -1,0 +1,82 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.box {
+  @extend %border-radius-5;
+  background-color: var(--main-bg);
+  overflow: hidden;
+  .card-top {
+    @extend %flex-center-;
+    background-color: var(--main-color);
+    position: relative;
+    height: 170px;
+    .images {
+      @extend %border-radius-50;
+      margin: 0 auto;
+      width: 150px;
+      height: 150px;
+      overflow: hidden;
+      position: absolute;
+      top: var(--sec-element-padding, 10px);
+      right: var(--sec-element-padding, 10px);
+      img {
+        width: 100%;
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+      }
+    }
+    .text {
+      width: calc(100% - 170px);
+      padding-left: var(--sec-element-padding, 10px);
+      h2 {
+        font-size: 1.4rem;
+        color: var(--const-white-color);
+        margin: 0;
+      }
+      span {
+        color: var(--const-white-color);
+        font-size: 0.95rem;
+      }
+    }
+  }
+  .card-body {
+    padding: var(--main-element-padding, 20px) {
+      bottom: 0;
+    }
+    p {
+      color: var(--sec-text-color) !important;
+    }
+  }
+  .data {
+    padding: var(--main-element-padding, 20px);
+    h2 {
+      color: var(--black-color);
+      font-size: 1.4rem;
+      margin-bottom: var(--sec-element-padding, 10px);
+    }
+    .contact-info {
+      padding: {
+        top: var(--sec-element-padding, 10px);
+        bottom: var(--main-element-padding, 20px);
+      }
+      margin-bottom: var(--sec-element-padding, 10px);
+      position: relative;
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        left: 0;
+        background-color: var(--sec-bg);
+      }
+      &::before {
+        top: 0;
+      }
+      &::after {
+        bottom: 0;
+      }
+    }
+  }
+}

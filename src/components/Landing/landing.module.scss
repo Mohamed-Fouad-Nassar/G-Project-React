@@ -1,0 +1,66 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+@use "../../assets/global_scss/animations" as *;
+
+.landing {
+  @extend %flex-center-center;
+  padding: var(--up-down-padding, 100px) 0;
+  background-color: var(--main-bg);
+  // min-height: 100vh;
+  height: 100vh;
+  position: relative;
+  @media (max-width: 767px) {
+    padding-top: 150px;
+  }
+  .container {
+    @extend %flex-center-center;
+    gap: var(--main-element-padding, 100px);
+    @media (max-width: 767px) {
+      flex-direction: column;
+    }
+    .down-btn {
+      @include trans-y(-50%);
+      height: 40px;
+      position: absolute;
+      bottom: var(--main-element-padding, 100px);
+      left: 50%;
+      a {
+        &:hover {
+          i {
+            color: var(--sec-color);
+          }
+        }
+        i {
+          font-size: 1.6rem;
+          color: var(--main-color);
+          -webkit-animation: up-down-btn 0.3s linear infinite alternate;
+          animation: up-down-btn 0.3s linear infinite alternate;
+        }
+      }
+    }
+    .left {
+      flex-basis: 50%;
+      @media (max-width: 767px) {
+        flex-basis: 100%;
+        text-align: center;
+      }
+      h1 {
+        font-size: 1.95rem;
+        color: var(--main-color);
+        margin-bottom: var(--sec-element-padding, 10px);
+      }
+      p {
+        color: var(--sec-text-color);
+        letter-spacing: 1px;
+        line-height: 1.5rem;
+        font-size: 1.1rem;
+      }
+    }
+    .right {
+      flex-basis: 50%;
+      @media (max-width: 767px) {
+        flex-basis: 100%;
+      }
+    }
+  }
+}

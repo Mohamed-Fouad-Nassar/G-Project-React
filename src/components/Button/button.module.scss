@@ -1,0 +1,32 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.main-btn {
+  @extend %border-radius-5;
+  @extend %flex-center-center;
+  cursor: pointer;
+  width: 160px;
+  margin: 0 auto;
+  outline: none;
+  text-transform: uppercase;
+  color: var(--const-white-color);
+  border: 1px solid var(--main-color);
+  background-color: var(--main-color);
+  padding: var(--sec-element-padding, 10px);
+  &:hover {
+    color: var(--main-color);
+    background-color: transparent;
+    border-color: var(--main-color);
+  }
+}
+
+.sec-btn {
+  @extend .main-btn;
+  border-color: var(--sec-color);
+  background-color: var(--sec-color);
+  &:hover {
+    color: var(--sec-color);
+    background-color: transparent;
+    border-color: var(--sec-color);
+  }
+}

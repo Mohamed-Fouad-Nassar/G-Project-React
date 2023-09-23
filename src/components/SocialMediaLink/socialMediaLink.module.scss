@@ -1,0 +1,22 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.social-link {
+  a {
+    @extend %ni-flex-center-center;
+    @extend %border-radius-5;
+    width: calc(var(--main-element-padding, 20px) * 2);
+    height: calc(var(--main-element-padding, 20px) * 2);
+    background-color: var(--sec-color);
+    &:hover {
+      background-color: var(--sec-bg);
+      .f-icon {
+        color: var(--main-color);
+      }
+    }
+    .f-icon {
+      font-size: 1.5rem;
+      color: var(--const-white-color);
+    }
+  }
+}

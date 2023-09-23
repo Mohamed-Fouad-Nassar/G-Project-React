@@ -1,0 +1,66 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+@use "../../assets/global_scss/animations" as *;
+
+.slide {
+  @extend %border-radius-10;
+  background-color: var(--main-bg);
+  box-shadow: var(--main-box-shadow);
+  overflow: hidden;
+  .slide-image {
+    img {
+      width: 100%;
+      height: 250px;
+      -o-object-fit: cover;
+      object-fit: cover;
+    }
+  }
+  .slide-body {
+    padding: calc(var(--sec-element-padding, 10px) / 2)
+      var(--sec-element-padding, 10px);
+    h3 {
+      color: var(--black-color);
+      margin: {
+        top: calc(var(--sec-element-padding, 10px) / 2);
+        bottom: var(--sec-element-padding, 10px);
+      }
+      font-size: 1.2rem;
+    }
+    p {
+      font-size: 0.9rem;
+      color: var(--sec-text-color);
+      margin-bottom: var(--sec-element-padding, 10px);
+      white-space: normal;
+      width: -webkit-fit-content;
+      width: -moz-fit-content;
+      width: fit-content;
+      @include max-lines(3);
+    }
+  }
+  .slide-foot {
+    padding: var(--sec-element-padding, 10px) {
+      top: 0;
+    }
+    a {
+      span {
+        font-size: 0.95rem;
+        color: var(--main-color);
+      }
+      .f-icon {
+        margin-left: 5px;
+        font-size: 0.9rem;
+        color: var(--main-color);
+      }
+      &:hover {
+        span,
+        .f-icon {
+          color: var(--sec-color);
+        }
+        .f-icon {
+          animation: left-right-btn 0.3s linear infinite alternate;
+          -webkit-animation: left-right-btn 0.3s linear infinite alternate;
+        }
+      }
+    }
+  }
+}

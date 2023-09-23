@@ -1,0 +1,29 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.links {
+  padding-top: var(--sec-element-padding, 10px);
+  li {
+    border-bottom: 1px solid var(--footer-sec-text-color);
+    a {
+      &::before {
+        @extend %zero-transition;
+        content: "\f101";
+        font: {
+          family: "Font Awesome 6 Free";
+          weight: 900;
+        }
+        margin-right: var(--sec-element-padding, 10px);
+      }
+      background-color: transparent;
+      display: block;
+      padding: var(--field-top-padding, 7px) 0;
+      color: var(--footer-sec-text-color);
+      position: relative;
+      &:hover {
+        color: var(--main-color);
+        padding-left: var(--main-element-padding, 20px);
+      }
+    }
+  }
+}

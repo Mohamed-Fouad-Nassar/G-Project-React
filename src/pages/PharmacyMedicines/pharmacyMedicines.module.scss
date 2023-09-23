@@ -1,0 +1,49 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.container {
+  .medicines {
+    position: relative;
+
+    h1 {
+      text-align: center;
+      font-size: 1.5rem;
+      color: var(--main-color);
+      padding-bottom: var(--main-element-padding, 20px);
+    }
+
+    .filter {
+      padding-bottom: var(--main-element-padding, 20px);
+      ul {
+        @extend %flex-center-center;
+        flex-wrap: wrap;
+        gap: var(--sec-element-padding, 10px);
+        li {
+          button {
+            @extend %border-radius-5;
+            display: block;
+            width: fit-content;
+            padding: var(--field-top-padding, 7px)
+              var(--sec-element-padding, 10px);
+            background-color: transparent;
+            color: var(--main-color);
+            border: 1px solid var(--main-color);
+            &:hover {
+              background-color: var(--main-color);
+              color: var(--const-white-color);
+            }
+            &.active {
+              background-color: var(--sec-color);
+              color: var(--const-white-color);
+              border-color: var(--sec-color);
+            }
+          }
+        }
+      }
+    }
+
+    .cards {
+      @extend %grid-300-20;
+    }
+  }
+}

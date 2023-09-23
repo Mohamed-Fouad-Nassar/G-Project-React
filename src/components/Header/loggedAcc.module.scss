@@ -1,0 +1,15 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.logged-account {
+  @extend %flex-center-center;
+  gap: var(--main-element-padding, 20px);
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  gap: var(--sec-element-padding, 10px);
+  height: 100%;
+  @media (max-width: 767px) {
+    grid-area: account;
+  }
+}

@@ -1,0 +1,51 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.box {
+  @extend %border-radius-5;
+  box-shadow: var(--main-box-shadow);
+  overflow: hidden;
+  background-color: var(--main-bg);
+  .image {
+    height: 250px;
+    img {
+      height: 250px;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  .text {
+    padding: var(--main-element-padding, 20px) var(--sec-element-padding, 10px);
+    h3 {
+      color: var(--black-color);
+      padding-bottom: calc(var(--sec-element-padding, 10px) / 2);
+      font: {
+        size: 1.1rem;
+        weight: 600;
+      }
+    }
+    span {
+      color: var(--sec-text-color);
+      font-size: 0.9rem;
+    }
+  }
+  .form {
+    padding: var(--main-element-padding, 20px) {
+      top: 0;
+    }
+    button {
+      @extend %flex-center-center;
+      gap: var(--sec-element-padding, 10px);
+      width: 100%;
+      &:hover {
+        .f-icon {
+          color: var(--main-color);
+        }
+      }
+      .f-icon {
+        color: var(--const-white-color);
+        font-size: 1.1rem;
+      }
+    }
+  }
+}

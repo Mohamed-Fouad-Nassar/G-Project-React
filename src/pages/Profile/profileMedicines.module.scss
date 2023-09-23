@@ -1,0 +1,43 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.content {
+  @extend %border-radius-5;
+  padding: var(--main-element-padding, 20px);
+  flex: 1;
+  background-color: var(--main-bg);
+  overflow-y: auto;
+  h2 {
+    margin-bottom: calc(var(--main-element-padding, 20px) * 2);
+    position: relative;
+    color: var(--main-color);
+    font: {
+      size: 1.6rem;
+      weight: 600;
+    }
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      height: 3px;
+      background-color: var(--sec-color);
+    }
+    &::before {
+      width: 95px;
+      bottom: -8px;
+    }
+    &::after {
+      width: 50px;
+      bottom: -15px;
+    }
+  }
+  .sec-body {
+    .control {
+      padding-top: calc(
+        var(--main-element-padding, 20px) + var(--sec-element-padding, 10px)
+      );
+      overflow-x: auto;
+    }
+  }
+}
