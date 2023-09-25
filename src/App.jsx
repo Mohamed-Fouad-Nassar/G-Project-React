@@ -7,6 +7,8 @@ import ProfileLayout from "./layouts/ProfileLayout/ProfileLayout";
 import DashboardLayout from "./layouts/DashboardLayout/DashboardLayout";
 import NotificationsLayout from "./layouts/NotificationsLayout/NotificationsLayout";
 
+import PageNotFound from "./pages/PageNotFound/PageNotFound";
+
 import LogIn from "./pages/LogIn/LogIn";
 import Register from "./pages/Register/Register";
 import ResetPassword from "./pages/ResetPassword/ResetPassword";
@@ -30,8 +32,6 @@ import Charity from "./pages/Charity/Charity";
 import OrderMessage from "./pages/Orders/OrderMessage";
 import AboutUs from "./pages/AboutUs/AboutUs";
 
-import PageNotFound from "./pages/PageNotFound/PageNotFound";
-
 import DashMain from "./pages/Dashboard/DashMain/DashMain";
 import DashDoctors from "./pages/Dashboard/DashDoctors";
 import DashMedicines from "./pages/Dashboard/DashMedicines";
@@ -39,6 +39,13 @@ import DashPharmacies from "./pages/Dashboard/DashPharmacies";
 import DashHospitals from "./pages/Dashboard/DashHospitals";
 import DashBlog from "./pages/Dashboard/DashBlog";
 import DashCharities from "./pages/Dashboard/DashCharities";
+
+import AddNewDoctor from "./pages/AddItems/AddNewDoctor";
+import AddNewMedicine from "./pages/AddItems/AddNewMedicine";
+import AddNewHospital from "./pages/AddItems/AddNewHospital";
+import AddNewPharmacy from "./pages/AddItems/AddNewPharmacy";
+import AddNewCharity from "./pages/AddItems/AddNewCharity";
+import AddNewArticle from "./pages/AddItems/AddNewArticle";
 
 function App() {
   return (
@@ -65,6 +72,13 @@ function App() {
           <Route path="charities" element={<Charities />} />
           <Route path="charities/:charityId" element={<Charity />} />
           <Route path="about-us" element={<AboutUs />} />
+          {/* modify items pages */}
+          <Route path="add-new-doctor" element={<AddNewDoctor />} />
+          <Route path="add-new-medicine" element={<AddNewMedicine />} />
+          <Route path="add-new-hospital" element={<AddNewHospital />} />
+          <Route path="add-new-pharmacy" element={<AddNewPharmacy />} />
+          <Route path="add-new-charity" element={<AddNewCharity />} />
+          <Route path="add-new-article" element={<AddNewArticle />} />
           {/* errors page */}
           <Route path="*" element={<PageNotFound />} />
         </Route>

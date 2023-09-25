@@ -1,0 +1,157 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.container {
+  .sec-head {
+    position: relative;
+    padding-bottom: 30px;
+    h1 {
+      color: var(--main-color);
+      font-size: 1.8rem;
+      text: {
+        align: center;
+        transform: uppercase;
+      }
+      margin: 0;
+    }
+    button {
+      top: 3px !important;
+    }
+  }
+  .sec-body {
+    form {
+      width: 100%;
+      h2 {
+        color: var(--black-color);
+        font: {
+          weight: 500 !important;
+          size: 1.4rem;
+        }
+        margin-bottom: var(--main-element-padding, 20px);
+      }
+      .sec-flex {
+        // @extend %flex-stretch-between;
+        @extend %flex-center-between;
+        gap: var(--main-element-padding, 20px);
+        @media (max-width: 991px) {
+          align-items: stretch;
+          flex-direction: column-reverse;
+          gap: calc(var(--main-element-padding, 20px) * 2);
+        }
+        .info {
+          flex: 1;
+        }
+        .image {
+          @extend %flex-center-center;
+          flex-direction: column;
+          h2 {
+            align-self: flex-start;
+          }
+          .avatar-upload {
+            @include upload-image();
+          }
+          &.half {
+            .avatar-upload {
+              max-width: 500px !important;
+              .avatar-preview {
+                width: 500px !important;
+                height: 350px !important;
+                > div {
+                  height: 340px !important;
+                }
+              }
+            }
+          }
+        }
+      }
+      div {
+        width: 100%;
+        position: relative;
+        &:not(:last-of-type) {
+          margin-bottom: var(--main-element-padding, 20px);
+        }
+        input,
+        textarea {
+          color: var(--black-color);
+          padding: var(--sec-element-padding, 10px) 15px;
+          width: 100%;
+          outline: none;
+          border: none;
+          border-bottom: 2px solid var(--sec-color);
+          background-color: var(--main-bg);
+          &:focus {
+            @include placeholder-color(transparent);
+            border-color: var(--main-color);
+          }
+        }
+        textarea {
+          min-height: 300px;
+          resize: vertical;
+        }
+        .error-message {
+          padding-top: 3px;
+          text-transform: none;
+          display: block;
+          position: relative;
+          visibility: hidden;
+          color: var(--danger-color);
+        }
+        &.success {
+          margin-bottom: var(--main-element-padding, 20px);
+          &::after {
+            @include trans-y(-50%);
+            content: "\f058";
+            font: {
+              weight: 900;
+              family: "Font Awesome 5 Free";
+            }
+            position: absolute;
+            top: 50%;
+            right: var(--sec-element-padding, 10px);
+            color: var(--success-input-color);
+          }
+          > input,
+          > textarea {
+            border-color: var(--success-input-color);
+          }
+          span {
+            display: none;
+          }
+        }
+        &.error {
+          margin-bottom: var(--sec-element-padding, 10px);
+          > input,
+          > textarea {
+            border-bottom-color: var(--danger-color);
+          }
+          > .error-message {
+            visibility: visible;
+            &::before {
+              content: "\f06a";
+              font: {
+                weight: 900;
+                family: "Font Awesome 5 Free";
+              }
+              padding-right: 5px;
+              color: var(--danger-color);
+            }
+          }
+        }
+        &.social {
+          .inputs {
+            @extend %grid-350-20;
+            > div {
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+      .article-body {
+        padding-top: 20px;
+      }
+      button {
+        margin-top: 30px !important;
+      }
+    }
+  }
+}

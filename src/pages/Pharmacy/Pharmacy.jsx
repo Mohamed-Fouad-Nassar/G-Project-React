@@ -1,12 +1,11 @@
+import { Link } from "react-router-dom";
 import { SwiperSlide } from "swiper/react";
 
 import BackBtn from "../../components/BackBtn/BackBtn";
-import SocialMediaDiv from "../../components/SocialMediaDiv/SocialMediaDiv";
-import SocialMediaLink from "../../components/SocialMediaLink/SocialMediaLink";
-import DataFieldSec from "../../components/DataFieldSec/DataFieldSec";
-import SwiperSlider from "../../components/SwiperSlider/SwiperSlider";
 import CardMin from "../../components/CardMin/CardMin";
 import CardForm from "../../components/CardForm/CardForm";
+import SwiperSlider from "../../components/SwiperSlider/SwiperSlider";
+import PharmacyInfoSec from "../../components/PharmacyInfoSec/PharmacyInfoSec";
 
 import pharmacyImg from "../../assets/images/default/pharmacy-image.jpg";
 import pharmacy1 from "../../assets/images/pharmacies/pharmacy-image-1.jpg";
@@ -18,7 +17,6 @@ import medicine2 from "../../assets/images/default/medicine-image-2.jpg";
 import medicine3 from "../../assets/images/default/medicine-image-3.jpg";
 
 import styles from "./pharmacy.module.scss";
-import { Link } from "react-router-dom";
 
 function Pharmacy() {
   const description = `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa
@@ -30,61 +28,21 @@ function Pharmacy() {
       <section className={styles.content}>
         <BackBtn />
         <h1>pharmacy name</h1>
-        <div className={styles["upper-sec"]}>
-          <section className={styles.image}>
-            <img src={pharmacyImg} alt={`${pharmacyImg}-image`} />
-          </section>
-          <section className={styles.data}>
-            <div className={styles["social-icon"]}>
-              <h2>contact links</h2>
-              <SocialMediaDiv>
-                <SocialMediaLink
-                  href="https://www.facebook.com/"
-                  icon="fa-brands fa-facebook-f"
-                  title="facebook"
-                />
-                <SocialMediaLink
-                  href="https://www.instagram.com/"
-                  icon="fa-brands fa-instagram"
-                  title="instagram"
-                />
-                <SocialMediaLink
-                  href="https://www.twitter.com/"
-                  icon="fa-brands fa-twitter"
-                  title="twitter"
-                />
-                <SocialMediaLink
-                  href="mailto:@mohagmail@gmail.com"
-                  icon="fa-solid fa-envelope"
-                  title="Mail"
-                />
-                <SocialMediaLink
-                  href="https://wa.me/552196312XXXX"
-                  icon="fa-brands fa-whatsapp"
-                  title="Whatsapp"
-                />
-                <SocialMediaLink
-                  href="tel:+18475555555"
-                  icon="fa-solid fa-phone"
-                  title="Phone Number"
-                />
-              </SocialMediaDiv>
-            </div>
-            <div className={styles["contact-info"]}>
-              <h2>contact info</h2>
-              <DataFieldSec
-                icon="fa-solid fa-location-dot"
-                data=" Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit
-                  molestiae vitae nam."
-              />
-              <DataFieldSec
-                icon="fa-solid fa-envelope"
-                data="monsfd@gmail.com"
-              />
-              <DataFieldSec icon="fa-solid fa-phone" data="+12353245" />
-            </div>
-          </section>
-        </div>
+        <PharmacyInfoSec
+          imgSrc={pharmacyImg}
+          info={{
+            phone: "+12353245",
+            location:
+              "Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit. Sit Molestiae Vitae Nam.",
+            email: "mohagmail@gmail.com",
+            links: {
+              facebook: "https://www.facebook.com/",
+              instagram: "https://www.instagram.com/",
+              twitter: "https://www.twitter.com/",
+              whatsapp: "552196312XXXX",
+            },
+          }}
+        />
         <pre className={styles["article-body"]}>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus,
           voluptates. Rerum possimus officia error excepturi blanditiis sequi

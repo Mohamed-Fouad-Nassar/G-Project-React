@@ -766,13 +766,14 @@
 //   }
 // }
 
-@mixin upload-image($theme) {
+@mixin upload-image() {
   position: relative;
   margin: 0 auto;
   max-width: 350px;
   width: 100%;
   .avatar-edit {
     @extend %translate-x-50;
+    margin-bottom: 0;
     position: absolute;
     width: fit-content;
     left: 50%;
@@ -785,56 +786,48 @@
       @extend %ni-flex-center-center;
       @extend %border-radius-50;
       margin-bottom: 0;
-      padding: $sec-element-padding;
-      background-color: $main-color;
+      padding: var(--sec-element-padding, 10px);
+      background-color: var(--main-color);
       border: 1px solid transparent;
-      box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+      // box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+      box-shadow: var(--main-box-shadow);
       cursor: pointer;
       font-weight: normal;
       transition: all 0.2s ease-in-out;
       &:hover {
-        background-color: $main-color-hover;
+        background-color: var(--main-color-hover);
       }
       &:after {
         content: "upload";
-        color: $white-color;
+        color: var(--const-white-color);
       }
     }
   }
   .avatar-preview {
-    width: 100%;
-    height: 100%;
-    max-height: 400px;
+    // width: 100%;
+    // height: 100%;
+    // max-height: 350px;
+    width: 350px;
+    height: 350px;
+    // max-height: 400px;
     position: relative;
-    border: 6px solid $white-color;
-    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+    border: 6px solid var(--main-bg);
+    // box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--main-box-shadow);
     margin: 0;
     overflow: hidden;
     > div {
       @extend %flex-center-center;
       width: 100%;
       height: 100%;
-      max-height: 400px;
+      // max-height: 350px;
+      // max-height: 400px;
       img {
-        flex: 1;
+        width: 100%;
         height: 100%;
+        flex: 1;
+        object-fit: cover;
       }
-    }
-  }
-  @if ($theme == "dark") {
-    .avatar-edit {
-      label {
-        background-color: $main-dark-color;
-        &:hover {
-          background-color: $main-color-hover;
-        }
-        &:after {
-          color: $white-dark-color;
-        }
-      }
-    }
-    .avatar-preview {
-      border-color: $sec-dark-bg;
     }
   }
 }
