@@ -127,22 +127,27 @@
   .input {
     position: relative;
     margin-bottom: var(--sec-element-padding, 10px);
-    label {
-      @extend %translate-y-50;
-      @extend %transition;
-      display: block;
-      padding: 0 var(--sec-element-padding, 10px);
-      font-weight: 400;
-      position: absolute;
-      left: calc(var(--sec-element-padding, 10px) / 2);
-      top: 50%;
-      background-color: var(--main-bg);
-      color: var(--sec-text-color);
-      pointer-events: none;
-      user-select: none;
-      > span {
-        margin-left: calc(var(--sec-element-padding, 10px) / 2);
-        color: var(--danger-color);
+    &.valid {
+      input {
+        border-color: var(--success-input-color);
+      }
+      &::after {
+        @extend %translate-y-50;
+        content: "\f058";
+        font: {
+          size: 1rem;
+          weight: 900;
+          family: "font awesome 6 free";
+        }
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        color: var(--success-input-color);
+      }
+      &:has(> span) {
+        &::after {
+          right: 35px;
+        }
       }
     }
     &:has(input:focus) {
@@ -166,6 +171,24 @@
         border-color: var(--danger-color);
       }
     }
+    label {
+      @extend %translate-y-50;
+      @extend %transition;
+      display: block;
+      padding: 0 var(--sec-element-padding, 10px);
+      font-weight: 400;
+      position: absolute;
+      left: calc(var(--sec-element-padding, 10px) / 2);
+      top: 50%;
+      background-color: var(--main-bg);
+      color: var(--sec-text-color);
+      pointer-events: none;
+      user-select: none;
+      > span {
+        margin-left: calc(var(--sec-element-padding, 10px) / 2);
+        color: var(--danger-color);
+      }
+    }
     input {
       @extend %border-radius-5;
       @extend %transition;
@@ -177,6 +200,32 @@
       outline: none;
       &:focus {
         border-color: var(--main-color) !important;
+      }
+    }
+    > span {
+      @extend %translate-y-50;
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      .f-icon {
+        color: var(--sec-text-color);
+        &:first-of-type {
+          display: block;
+        }
+        &:last-of-type {
+          display: none;
+        }
+      }
+      &.show {
+        .f-icon {
+          &:first-of-type {
+            display: none;
+          }
+          &:last-of-type {
+            display: block;
+          }
+        }
       }
     }
   }

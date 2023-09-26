@@ -1,4 +1,6 @@
+import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import Joi from "joi";
 
 import RegisterLogInLayout from "../../layouts/RegisterLogInLayout/RegisterLogInLayout";
 
@@ -13,6 +15,29 @@ import styles from "./logIn.module.scss";
 function LogIn() {
   useSetTitle("Log in");
 
+  const passwordRef = useRef(null);
+
+  const emailSchema = Joi.string()
+    .email({
+      minDomainSegments: 2,
+      tlds: { allow: ["com", "net"] },
+    })
+    .required();
+
+  const passwordSchema = Joi.string().pattern(
+    new RegExp("^[a-zA-Z0-9]{3,30}$")
+  );
+
+  const [email, setEmail] = useState("");
+  const [emailErr, setEmailErr] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordErr, setPasswordErr] = useState("");
+  const [remember, setRemember] = useState(false);
+
+  const validateInput = (schema, value) => {
+    return schema.validate(value);
+  };
+
   const handleBlurInput = (e) => {
     if (e.target.value.length > 0)
       e.target.classList.add(`${styles.hasContent}`);
@@ -21,6 +46,13 @@ function LogIn() {
 
   const submitForm = (e) => {
     e.preventDefault();
+    if (!emailErr && !passwordErr && email && password) {
+      console.log(`
+      email: ${email},
+      password: ${password},
+      remember: ${remember}
+      `);
+    }
   };
 
   return (
@@ -37,31 +69,95 @@ function LogIn() {
         <form onSubmit={submitForm}>
           <div className={styles.field}>
             <div className={styles.input}>
-              <input type="text" id="email" onBlur={handleBlurInput} />
+              <input
+                type="text"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                onBlur={(e) => {
+                  handleBlurInput(e);
+                  if (validateInput(emailSchema, e.target.value).error) {
+                    setEmailErr(
+                      validateInput(emailSchema, e.target.value).error
+                        .details[0].message
+                    );
+                    e.target.parentElement.classList.remove(`${styles.valid}`);
+                  } else {
+                    setEmailErr("");
+                    e.target.parentElement.classList.add(`${styles.valid}`);
+                  }
+                }}
+              />
               <label htmlFor="email">
                 email
                 <span>*</span>
               </label>
             </div>
-            <span className={`${styles["error-message"]}`}></span>
+            {emailErr && (
+              <span className={`${styles["error-message"]} ${styles.active}`}>
+                {emailErr}
+              </span>
+            )}
           </div>
 
           <div className={styles.field}>
             <div className={styles.input}>
-              <input type="password" id="password" onBlur={handleBlurInput} />
+              <input
+                type="password"
+                id="password"
+                value={password}
+                ref={passwordRef}
+                onChange={(e) => setPassword(e.target.value)}
+                onBlur={(e) => {
+                  handleBlurInput(e);
+                  if (validateInput(passwordSchema, e.target.value).error) {
+                    setPasswordErr(
+                      validateInput(passwordSchema, e.target.value).error
+                        .details[0].message
+                    );
+                    e.target.parentElement.classList.remove(`${styles.valid}`);
+                  } else {
+                    setPasswordErr("");
+                    e.target.parentElement.classList.add(`${styles.valid}`);
+                  }
+                }}
+              />
+              <span
+                onClick={(e) => {
+                  if (passwordRef.current.type === "text") {
+                    passwordRef.current.type = "password";
+                    e.target.parentElement.classList.remove(`${styles.show}`);
+                  } else {
+                    passwordRef.current.type = "text";
+                    e.target.parentElement.classList.add(`${styles.show}`);
+                  }
+                }}
+              >
+                <i className={`${styles["f-icon"]} fa-solid fa-eye`}></i>
+                <i className={`${styles["f-icon"]} fa-solid fa-eye-slash`}></i>
+              </span>
               <label htmlFor="password">
                 password
                 <span>*</span>
               </label>
             </div>
-            <span className={`${styles["error-message"]} ${styles.active}`}>
-              error message here
-            </span>
+            {passwordErr && (
+              <span className={`${styles["error-message"]} ${styles.active}`}>
+                {passwordErr}
+              </span>
+            )}
           </div>
 
           <div className={styles["flex-sec"]}>
             <div className={styles["left-sec"]}>
-              <input type="checkbox" name="remember" id="rem" />
+              <input
+                type="checkbox"
+                name="remember"
+                id="rem"
+                onChange={() => {
+                  setRemember((prevState) => !prevState);
+                }}
+              />
               <label htmlFor="rem">remember me</label>
             </div>
             <div className={styles["right-sec"]}>

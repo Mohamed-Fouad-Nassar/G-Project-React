@@ -1,11 +1,65 @@
 @use "../../assets/global_scss/variables" as *;
 @use "../../assets/global_scss/helpers" as *;
 
+// header {
+//   box-shadow: var(--header-box-shadow);
+//   background-color: var(--sec-bg);
+//   -webkit-backdrop-filter: blur(calc(var(--sec-element-padding) / 2));
+//   backdrop-filter: blur(calc(var(--sec-element-padding) / 2));
+//   padding: 0;
+//   width: 100%;
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   z-index: 1000;
+//   .container {
+//     display: grid;
+//     align-items: center;
+//     justify-content: space-between;
+//     grid-template-columns: repeat(3, auto);
+//     gap: var(--sec-element-padding, 10px);
+//     @media (max-width: 767px) {
+//       padding-top: calc(var(--sec-element-padding) / 2);
+//       grid-template-columns: auto 1fr auto;
+//       grid-template-rows: repeat(2, 1fr);
+//       grid-template-areas: "logo . account" "navLinK navLinK navLinK";
+//     }
+
+//   }
+// &.scroll {
+//   background-color: var(--transparent-color);
+//   .container {
+//     nav {
+//       ul {
+//         li {
+//           &.active {
+//             background-color: var(--sec-bg);
+//             a {
+//               color: var(--main-color);
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+//   &.scroll_down {
+//     @media (max-width: 767px) {
+//       top: -70px !important;
+//     }
+//   }
+//   &.scroll_up {
+//     @media (max-width: 767px) {
+//       top: 0 !important;
+//     }
+//   }
+// }
+
 header {
-  box-shadow: var(--header-box-shadow);
   background-color: var(--sec-bg);
-  -webkit-backdrop-filter: blur(calc(var(--sec-element-padding) / 2));
-  backdrop-filter: blur(calc(var(--sec-element-padding) / 2));
+  box-shadow: var(--header-box-shadow);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
   padding: 0;
   width: 100%;
   position: fixed;
@@ -13,16 +67,80 @@ header {
   left: 0;
   z-index: 1000;
   .container {
-    display: grid;
-    align-items: center;
-    justify-content: space-between;
-    grid-template-columns: repeat(3, auto);
-    gap: var(--sec-element-padding, 10px);
-    @media (max-width: 767px) {
-      padding-top: calc(var(--sec-element-padding) / 2);
-      grid-template-columns: auto 1fr auto;
-      grid-template-rows: repeat(2, 1fr);
-      grid-template-areas: "logo . account" "navLinK navLinK navLinK";
+    @extend %flex-center-between;
+    @media (max-width: 991px) {
+      padding: var(--sec-element-padding, 10px);
+    }
+    &:has(.controls.active) {
+      @media (max-width: 991px) {
+        .mobile-btn {
+          .overlay {
+            display: block !important;
+          }
+        }
+      }
+    }
+    .mobile-btn {
+      display: none;
+      cursor: pointer;
+      @media (max-width: 991px) {
+        display: block;
+        .bars {
+          width: 45px;
+          padding: var(--field-top-padding, 7px);
+          border: 2px solid var(--main-color);
+          @include border-rad(calc(var(--sec-element-padding, 10px) / 2));
+          > span {
+            background-color: var(--main-color);
+            display: block;
+            height: 3px;
+            width: 100%;
+            margin-bottom: calc(var(--sec-element-padding, 10px) / 2);
+            @include border-rad(calc(var(--sec-element-padding, 10px) / 2));
+            &:last-of-type {
+              margin: 0;
+            }
+          }
+        }
+        &:hover {
+          .bars {
+            border-color: var(--sec-color);
+            > span {
+              background-color: var(--sec-color);
+            }
+          }
+        }
+        .overlay {
+          cursor: initial;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100vh;
+          background-color: rgb(0 0 0 / 27%);
+          display: none;
+        }
+      }
+    }
+    .controls {
+      @extend %flex-center-between;
+      flex: 1;
+      gap: var(--sec-element-padding, 10px);
+      @media (max-width: 991px) {
+        padding: 30px var(--sec-element-padding, 10px)
+          var(--sec-element-padding, 10px);
+        justify-content: start;
+        flex-direction: column-reverse;
+        position: absolute;
+        top: 0;
+        right: -300px;
+        width: 300px;
+        height: 100vh;
+        background-color: var(--sec-bg);
+        &.active {
+          right: 0;
+        }
+      }
     }
   }
   &.scroll {
@@ -40,16 +158,6 @@ header {
           }
         }
       }
-    }
-  }
-  &.scroll_down {
-    @media (max-width: 767px) {
-      top: -70px !important;
-    }
-  }
-  &.scroll_up {
-    @media (max-width: 767px) {
-      top: 0 !important;
     }
   }
 }

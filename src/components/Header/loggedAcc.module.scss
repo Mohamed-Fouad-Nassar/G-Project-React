@@ -1,15 +1,39 @@
 @use "../../assets/global_scss/variables" as *;
 @use "../../assets/global_scss/helpers" as *;
 
+// .logged-account {
+//   @extend %flex-center-center;
+//   gap: var(--main-element-padding, 20px);
+//   width: -webkit-fit-content;
+//   width: -moz-fit-content;
+//   width: fit-content;
+//   gap: var(--sec-element-padding, 10px);
+//   height: 100%;
+//   @media (max-width: 767px) {
+//     grid-area: account;
+//   }
+// }
+
 .logged-account {
   @extend %flex-center-center;
   gap: var(--main-element-padding, 20px);
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  gap: var(--sec-element-padding, 10px);
-  height: 100%;
-  @media (max-width: 767px) {
-    grid-area: account;
+  @media (max-width: 991px) {
+    height: initial !important;
+    width: 100%;
+    padding: {
+      top: var(--sec-element-padding, 10px);
+      bottom: var(--sec-element-padding, 10px);
+    }
+    margin: {
+      top: var(--sec-element-padding, 10px);
+      bottom: var(--sec-element-padding, 10px);
+    }
+    border: {
+      top: 1px solid var(--main-bg);
+      bottom: 1px solid var(--main-bg);
+    }
   }
 }

@@ -1,0 +1,31 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.top-sec {
+  display: none;
+  @media (max-width: 991px) {
+    display: block;
+    width: 100%;
+    position: relative;
+    padding: {
+      left: var(--sec-element-padding, 10px);
+      right: var(--sec-element-padding, 10px);
+    }
+    .close-btn {
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      right: var(--sec-element-padding, 10px);
+      padding: 5px var(--sec-element-padding, 10px);
+      &:hover {
+        .f-icon {
+          color: var(--danger-color);
+        }
+      }
+      .f-icon {
+        font-size: 1.5rem;
+        color: var(--black-color);
+      }
+    }
+  }
+}

@@ -1,21 +1,43 @@
 @use "../../assets/global_scss/variables" as *;
 @use "../../assets/global_scss/helpers" as *;
 
+// .nav {
+//   @extend %flex-center-between;
+//   @media (max-width: 767px) {
+//     grid-area: navLinK;
+//     border-top: 1px solid var(--main-bg);
+//   }
+//   ul {
+//     display: flex;
+//     gap: var(--sec-element-padding, 10px);
+//     @media (max-width: 991px) {
+//       margin: 0 auto;
+//       gap: var(--main-element-padding, 20px);
+//     }
+//     @media (max-width: 450px) {
+//       gap: var(--sec-element-padding, 10px);
+//     }
+//   }
+// }
+
 .nav {
-  @extend %flex-center-between;
-  @media (max-width: 767px) {
-    grid-area: navLinK;
-    border-top: 1px solid var(--main-bg);
+  flex: 1;
+  @extend %flex-center-center;
+  @media (max-width: 991px) {
+    flex: 0;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: flex-start;
   }
   ul {
     display: flex;
     gap: var(--sec-element-padding, 10px);
     @media (max-width: 991px) {
-      margin: 0 auto;
-      gap: var(--main-element-padding, 20px);
-    }
-    @media (max-width: 450px) {
-      gap: var(--sec-element-padding, 10px);
+      gap: calc(var(--sec-element-padding, 10px) / 2);
+      width: 100%;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
     }
   }
 }

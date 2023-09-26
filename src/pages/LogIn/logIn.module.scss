@@ -36,7 +36,7 @@
       padding-bottom: var(--main-element-padding, 20px);
       .left-sec {
         display: flex;
-        align-items: center;
+        align-items: baseline;
         gap: var(--sec-element-padding, 10px);
         input {
           @include check-box-shape();
