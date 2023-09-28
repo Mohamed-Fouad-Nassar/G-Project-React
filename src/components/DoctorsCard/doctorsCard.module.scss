@@ -31,7 +31,7 @@
     padding: var(--sec-element-padding, 10px);
     h5 {
       font-size: 1rem;
-      color: $main-color;
+      color: var(--main-color);
       margin-bottom: var(--sec-element-padding, 10px);
     }
     p {

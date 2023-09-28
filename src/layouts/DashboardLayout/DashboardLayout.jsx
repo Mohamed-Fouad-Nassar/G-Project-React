@@ -13,51 +13,54 @@ function DashboardLayout() {
     <>
       <Header />
       <main className={styles.main}>
-        <Aside>
-          <AsideLi
-            type="link"
-            icon="fa-regular fa-chart-bar"
-            title="Dashboard"
-            href="/dashboard"
-          />
-          <AsideLi
-            type="link"
-            icon="fa-solid fa-user-doctor"
-            title="doctors"
-            href="/dashboard/doctors"
-          />
-          <AsideLi
-            type="link"
-            icon="fa-solid fa-pills"
-            title="medicines"
-            href="/dashboard/medicines"
-          />
-          <AsideLi
-            type="link"
-            icon="fa-solid fa-hospital"
-            title="hospitals"
-            href="/dashboard/hospitals"
-          />
-          <AsideLi
-            type="link"
-            icon="fa-solid fa-house-medical"
-            title="pharmacies"
-            href="/dashboard/pharmacies"
-          />
-          <AsideLi
-            type="link"
-            icon="fa-solid fa-book-open-reader"
-            title="blog"
-            href="/dashboard/blog"
-          />
-          <AsideLi
-            type="link"
-            icon="fa-solid fa-hand-holding-heart"
-            title="charities"
-            href="/dashboard/charities"
-          />
-        </Aside>
-        <Outlet />
+        <h1>dashboard</h1>
+        <div className={styles["body-sec"]}>
+          <Aside>
+            <AsideLi
+              type="link"
+              icon="fa-regular fa-chart-bar"
+              title="Dashboard"
+              href="/dashboard"
+            />
+            <AsideLi
+              type="link"
+              icon="fa-solid fa-user-doctor"
+              title="doctors"
+              href="/dashboard/doctors"
+            />
+            <AsideLi
+              type="link"
+              icon="fa-solid fa-pills"
+              title="medicines"
+              href="/dashboard/medicines"
+            />
+            <AsideLi
+              type="link"
+              icon="fa-solid fa-hospital"
+              title="hospitals"
+              href="/dashboard/hospitals"
+            />
+            <AsideLi
+              type="link"
+              icon="fa-solid fa-house-medical"
+              title="pharmacies"
+              href="/dashboard/pharmacies"
+            />
+            <AsideLi
+              type="link"
+              icon="fa-solid fa-book-open-reader"
+              title="blog"
+              href="/dashboard/blog"
+            />
+            <AsideLi
+              type="link"
+              icon="fa-solid fa-hand-holding-heart"
+              title="charities"
+              href="/dashboard/charities"
+            />
+          </Aside>
+          <Outlet />
+        </div>
         <TopButton />
       </main>
       <Footer />

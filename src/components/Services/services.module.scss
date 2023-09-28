@@ -2,13 +2,13 @@
 @use "../../assets/global_scss/helpers" as *;
 
 .services {
-  padding: $up-down-padding 0;
+  padding: var(--up-down-padding, 100px) 0;
   background-color: var(--sec-bg);
   .container {
     .sec-body {
       @extend %grid-350-20;
       @media (max-width: 1199px) {
-        @include grid(300px, 20px);
+        @include grid(300px, var(--main-element-padding, 20px));
       }
     }
   }

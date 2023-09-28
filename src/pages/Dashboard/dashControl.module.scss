@@ -12,7 +12,9 @@
   }
   .sec-body {
     .control {
-      padding-top: $main-element-padding + $sec-element-padding;
+      padding-top: calc(
+        var(--main-element-padding, 20px) + var(--sec-element-padding, 10px)
+      );
       overflow-x: auto;
     }
   }

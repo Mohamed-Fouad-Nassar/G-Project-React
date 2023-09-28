@@ -13,12 +13,30 @@ function Account({ avatar }) {
   };
 
   const toggleMenu = () => {
-    menuRef.current.classList.toggle(`${styles.active}`);
+    if (menuRef.current.classList.contains(`${styles.active}`)) {
+      menuRef.current.classList.remove(`${styles.active}`);
+      if (window.innerWidth <= 991)
+        menuRef.current.parentElement.parentElement.style.paddingBottom =
+          "10px";
+      else
+        menuRef.current.parentElement.parentElement.style.paddingBottom = "0";
+    } else {
+      menuRef.current.classList.add(`${styles.active}`);
+      if (window.innerWidth <= 991)
+        menuRef.current.parentElement.parentElement.style.paddingBottom =
+          "180px";
+      else
+        menuRef.current.parentElement.parentElement.style.paddingBottom = "0";
+    }
   };
 
   useOnClickOutside(accRef, () => {
-    if (menuRef.current.classList.contains(`${styles.active}`))
-      menuRef.current.classList.remove(`${styles.active}`);
+    if (menuRef.current.classList.contains(`${styles.active}`)) {
+      if (window.innerWidth > 991) {
+        menuRef.current.classList.remove(`${styles.active}`);
+        menuRef.current.parentElement.parentElement.style.paddingBottom = "0";
+      }
+    }
   });
 
   return (

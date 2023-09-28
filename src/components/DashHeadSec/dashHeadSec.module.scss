@@ -3,9 +3,9 @@
 
 .sec-head {
   h2 {
-    margin-bottom: 40px;
+    margin-bottom: calc(var(--main-element-padding, 20px) * 2);
     position: relative;
-    color: $main-color;
+    color: var(--main-color);
     font: {
       size: 1.6rem;
       weight: 600;
@@ -16,7 +16,7 @@
       position: absolute;
       left: 0;
       height: 3px;
-      background-color: $sec-color;
+      background-color: var(--sec-color);
     }
     &::before {
       width: 95px;

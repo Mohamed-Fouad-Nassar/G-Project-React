@@ -1,9 +1,18 @@
 @use "../../assets/global_scss/variables" as *;
 @use "../../assets/global_scss/helpers" as *;
 
+@media (max-width: 991px) {
+  .activeParent {
+    padding-bottom: 170px;
+  }
+}
+
 .acc {
   padding-left: var(--sec-element-padding, 10px);
   position: relative;
+  @media (max-width: 991px) {
+    position: static;
+  }
   .h-btn {
     @include border-rad(50%);
     width: calc(var(--up-down-padding, 100px) / 2);
@@ -34,19 +43,28 @@
     &.active {
       display: block;
     }
-    @media (max-width: 768px) {
-      top: 62px !important;
-    }
     @media (max-width: 1240px) {
       @include trans-x(0);
       right: 0;
       left: initial;
     }
+    @media (max-width: 991px) {
+      width: 100%;
+      top: 72px;
+      display: block !important;
+      scale: 1 0;
+      overflow: hidden;
+      box-shadow: none;
+      transform-origin: top;
+      &.active {
+        scale: 1 1;
+      }
+    }
     ul {
       display: flex;
       flex-direction: column;
       position: relative;
-      gap: var(--sec-element-padding, 10px);
+      gap: calc(var(--sec-element-padding, 10px) / 2);
       padding: 0;
       &::after {
         content: "";
@@ -65,6 +83,9 @@
         @media (max-width: 1240px) {
           right: 0;
         }
+        @media (max-width: 991px) {
+          content: none;
+        }
       }
       li {
         width: 100%;
@@ -79,10 +100,7 @@
           @extend %flex-center-;
           gap: var(--sec-element-padding, 10px);
           width: 100%;
-          padding: var(--field-top-padding, 7px) {
-            left: var(--sec-element-padding, 10px);
-            right: var(--sec-element-padding, 10px);
-          }
+          padding: var(--sec-element-padding, 10px);
           text-transform: capitalize;
           font-size: 0.9rem;
           color: var(--black-color);

@@ -3,6 +3,6 @@
 
 .contact {
   @extend %flex-center-start;
-  gap: $sec-element-padding;
+  gap: var(--sec-element-padding, 10px);
   flex-wrap: nowrap;
 }

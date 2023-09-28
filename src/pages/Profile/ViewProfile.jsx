@@ -3,6 +3,7 @@ import useSetTitle from "../../hooks/useSetTitle";
 import avatar from "../../assets/images/default/avatar-image-male.png";
 
 import styles from "./viewProfile.module.scss";
+import Button from "../../components/Button/Button";
 
 function ViewProfile() {
   useSetTitle("View Profile");
@@ -29,10 +30,10 @@ function ViewProfile() {
           <span>{userName}</span>
         </div>
         <div className={styles["edit-btn"]}>
-          <a href={href}>
+          <Button type="link" href={href}>
             <i className={`${styles["f-icon"]} fa-solid fa-pen`} />
             <span>edit profile</span>
-          </a>
+          </Button>
         </div>
       </div>
       <div className={styles["bottom-sec"]}>
@@ -92,55 +93,6 @@ function ViewProfile() {
       </div>
     </section>
   );
-}
-
-{
-  /* <article className="box">
-  <label htmlFor="field">date of birth:</label>
-  <div className="field" id="field">
-    <span>3</span> / <span>10</span> / <span>2000</span>
-  </div>
-</article>
-<article className="box">
-  <label htmlFor="field">e-mail:</label>
-  <div className="field" id="field">
-    <span>leosx.as@mn.ci</span>
-  </div>
-</article>
-<article className="box">
-  <div className="field">
-    <div className="left-sec">
-      <label htmlFor="field">gender:</label>
-      <div className="field" id="field">
-        <span>male</span>
-      </div>
-    </div>
-    <div className="right-sec">
-      <label htmlFor="field">age:</label>
-      <div className="field" id="field">
-        <span>20</span>
-      </div>
-    </div>
-  </div>
-</article>
-<article className="box">
-  <label htmlFor="field">phone number:</label>
-  <div className="field" id="field">
-    <span>+201034648924</span>
-  </div>
-</article>
-<article className="box">
-  <label htmlFor="field">cancer type:</label>
-  <div className="field" id="field">
-    <span>bladder cancer</span>
-  </div>
-</article>
-<article className="box">
-  <label htmlFor="field">address:</label>
-  <div className="field" id="field">
-    <span>street name - city - country</span>
-  </div>
-</article>  */
 }
 
 export default ViewProfile;

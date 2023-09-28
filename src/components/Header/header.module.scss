@@ -127,6 +127,7 @@ header {
       flex: 1;
       gap: var(--sec-element-padding, 10px);
       @media (max-width: 991px) {
+        position: relative;
         padding: 30px var(--sec-element-padding, 10px)
           var(--sec-element-padding, 10px);
         justify-content: start;

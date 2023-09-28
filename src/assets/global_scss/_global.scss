@@ -186,90 +186,33 @@ input {
 
 /* End Scroll Bar Styling */
 
-/* Start Top Button Styling:- */
-main {
-  // padding-top: 68px;
-  // @media (max-width: 767px) {
-  //   padding-top: 150px !important;
-  // }
-  // .top {
-  //   display: none;
-  //   position: fixed;
-  //   bottom: 15px;
-  //   right: 15px;
-  //   z-index: 100000;
-  //   a {
-  //     @extend %flex-center-center;
-  //     width: $main-element-padding * 2;
-  //     height: $main-element-padding * 2;
-  //     background-color: $main-color;
-  //     border: 2px solid $main-color;
-  //     font-size: 1.5rem;
-  //     i {
-  //       color: $white-color;
-  //     }
-  //     &:hover {
-  //       background-color: $white-color;
-  //       border-color: $main-color;
-  //       i {
-  //         color: $main-color;
-  //       }
-  //     }
-  //   }
-  // }
-}
-
-.dark {
-  // dark mode on top button
-  main {
-    // .top {
-    //   a {
-    //     background-color: $main-dark-color;
-    //     border-color: $main-dark-color;
-    //     i {
-    //       color: $white-dark-color;
-    //     }
-    //     &:hover {
-    //       background-color: $sec-dark-bg;
-    //       border-color: $main-dark-color;
-    //       i {
-    //         color: $main-dark-color;
-    //       }
-    //     }
-    //   }
-    // }
-  }
-}
-
-/* End Top Button Styling */
-
 /* Start Error message and Success sign Styling:- */
 
-body.dark {
-  .error-message {
-    @include error-sign("dark");
-    border-bottom-color: #ff3c3cde !important;
-    span:first-of-type {
-      background-color: #ff3c3cde !important;
-    }
-  }
-}
+// body.dark {
+//   .error-message {
+//     @include error-sign("dark");
+//     border-bottom-color: #ff3c3cde !important;
+//     span:first-of-type {
+//       background-color: #ff3c3cde !important;
+//     }
+//   }
+// }
 
-.error-message {
-  @include error-sign("light");
-  border-bottom-color: #fb0505 !important;
-  span:first-of-type {
-    background-color: #fb0505 !important;
-  }
-}
+// .error-message {
+//   @include error-sign("light");
+//   border-bottom-color: #fb0505 !important;
+//   span:first-of-type {
+//     background-color: #fb0505 !important;
+//   }
+// }
 
-.success-message {
-  @extend %success-sign;
-  border-bottom-color: #1ad922 !important;
-  span:first-of-type {
-    background-color: #1ad922 !important;
-  }
-}
+// .success-message {
+//   @extend %success-sign;
+//   border-bottom-color: #1ad922 !important;
+//   span:first-of-type {
+//     background-color: #1ad922 !important;
+//   }
+// }
 
 /* End Error message and Success sign Styling */
 
@@ -282,8 +225,8 @@ main {
       top: var(--up-down-padding, 100px);
       bottom: calc(var(--up-down-padding, 100px) / 2);
     }
-    @media (max-width: 767px) {
-      padding-top: 150px !important;
-    }
+    // @media (max-width: 767px) {
+    //   padding-top: 150px !important;
+    // }
   }
 }

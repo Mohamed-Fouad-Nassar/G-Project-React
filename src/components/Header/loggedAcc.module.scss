@@ -21,13 +21,10 @@
   width: -moz-fit-content;
   width: fit-content;
   @media (max-width: 991px) {
+    position: relative;
     height: initial !important;
     width: 100%;
     padding: {
-      top: var(--sec-element-padding, 10px);
-      bottom: var(--sec-element-padding, 10px);
-    }
-    margin: {
       top: var(--sec-element-padding, 10px);
       bottom: var(--sec-element-padding, 10px);
     }

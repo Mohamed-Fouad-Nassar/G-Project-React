@@ -3,18 +3,18 @@
 
 .content {
   @extend %border-radius-5;
-  @include grid(600px, $main-element-padding);
+  @include grid(600px, var(--main-element-padding, 20px));
   @media (max-width: 1580px) {
-    @include grid(500px, $main-element-padding);
+    @include grid(500px, var(--main-element-padding, 20px));
   }
   @media (max-width: 1380px) {
-    @include grid(400px, $main-element-padding);
+    @include grid(400px, var(--main-element-padding, 20px));
   }
   @media (max-width: 1199px) {
-    @include grid(420px, $main-element-padding);
+    @include grid(420px, var(--main-element-padding, 20px));
   }
   @media (max-width: 575px) {
-    @include grid(250px, $main-element-padding);
+    @include grid(250px, var(--main-element-padding, 20px));
   }
   background-color: var(--main-bg);
   padding: var(--main-element-padding, 20px);

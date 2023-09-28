@@ -47,12 +47,8 @@
       }
     }
     .edit-btn {
-      @extend %flex-center-;
-      flex-direction: column;
-      gap: var(--sec-element-padding, 10px);
       padding-top: 30px;
       a {
-        @include button-shape(var(--main-color), "light");
         @extend %flex-center-center;
         gap: var(--sec-element-padding, 10px);
         &:hover {
