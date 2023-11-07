@@ -37,7 +37,9 @@
     }
     .pharmacies-name {
       @extend %flex-start-center;
-      padding: var(--sec-element-padding, 10px);
+      padding: var(--sec-element-padding, 10px) {
+        top: 5px;
+      }
       flex-wrap: wrap;
       gap: var(--sec-element-padding, 10px);
       a {
@@ -46,7 +48,7 @@
         color: var(--black-color);
         background-color: var(--sec-bg);
         border-color: var(--sec-bg);
-        font-size: 0.9rem;
+        font-size: 0.8rem;
         &:hover {
           color: var(--const-white-color);
           background-color: var(--main-color);

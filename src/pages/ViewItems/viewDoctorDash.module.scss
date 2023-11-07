@@ -1,0 +1,51 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.felids {
+  padding: var(--main-element-padding, 20px);
+  label {
+    color: var(--black-color);
+  }
+  .content {
+    text-align: left !important;
+  }
+  .images {
+    @extend %flex-center-center;
+    flex-wrap: wrap;
+    gap: var(--sec-element-padding, 10px);
+    > section {
+      width: 250px;
+      border: 5px solid var(--main-bg);
+      img {
+        width: 100%;
+      }
+    }
+  }
+  .flex-sec,
+  .grid-sec {
+    @extend %flex--between;
+    gap: var(--sec-element-padding, 10px);
+    flex-wrap: wrap;
+    @media (min-width: 992px) {
+      justify-content: center;
+      align-items: center;
+    }
+    @media (max-width: 991px) {
+      flex-direction: column;
+    }
+  }
+  .grid-sec {
+    padding-top: var(--sec-element-padding, 10px);
+  }
+  .full {
+    justify-content: flex-start !important;
+    > article {
+      flex: 1 !important;
+    }
+  }
+  .flex-sec {
+    .left-sec {
+      flex: 1;
+    }
+  }
+}

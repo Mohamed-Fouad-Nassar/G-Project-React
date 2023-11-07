@@ -1,0 +1,50 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.container {
+  @extend %flex-center-center;
+  flex-direction: column;
+  text-align: center;
+  height: 100vh;
+  .f-icon {
+    font-size: 5rem;
+    color: var(--main-color);
+  }
+  > h1 {
+    text-transform: uppercase;
+    color: var(--main-color);
+    font-size: 3rem;
+    margin: {
+      bottom: calc(
+        var(--sec-element-padding, 10px) + var(--main-element-padding, 20px)
+      );
+    }
+  }
+  > p,
+  span {
+    color: var(--sec-text-color);
+    margin: 0 {
+      bottom: var(--sec-element-padding, 10px);
+    }
+    &:last-of-type {
+      margin-bottom: calc(
+        var(--sec-element-padding, 10px) + var(--main-element-padding, 20px)
+      );
+    }
+    > span {
+      color: var(--sec-color);
+      &:first-of-type {
+        font-size: 1.2rem;
+        margin-right: var(--sec-element-padding, 10px);
+      }
+      &:last-of-type {
+        font-size: 1.7rem;
+        margin-left: var(--sec-element-padding, 10px);
+      }
+    }
+  }
+  .btns {
+    @extend %flex-center-center;
+    gap: var(--sec-element-padding, 10px);
+  }
+}

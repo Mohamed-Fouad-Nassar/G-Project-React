@@ -5,7 +5,7 @@
 /* Start Global Rules:- */
 
 * {
-  @extend %transition;
+  // @extend %transition;
   box-sizing: border-box;
   text-transform: capitalize;
   font-family: "Open Sans", sans-serif;
@@ -32,6 +32,15 @@ body {
 //   @extend %border-radius-5;
 // }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+button,
+input,
 ::after,
 ::before {
   @extend %transition;
@@ -219,7 +228,7 @@ input {
 main {
   background-color: var(--sec-bg);
   position: relative;
-  min-height: 100vh;
+  // min-height: 100vh;
   > .container {
     padding: {
       top: var(--up-down-padding, 100px);

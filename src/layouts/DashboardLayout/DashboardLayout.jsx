@@ -13,7 +13,7 @@ function DashboardLayout() {
     <>
       <Header />
       <main className={styles.main}>
-        <h1>dashboard</h1>
+        {/* <h1>dashboard</h1> */}
         <div className={styles["body-sec"]}>
           <Aside>
             <AsideLi
@@ -57,6 +57,12 @@ function DashboardLayout() {
               icon="fa-solid fa-hand-holding-heart"
               title="charities"
               href="/dashboard/charities"
+            />
+            <AsideLi
+              type="link"
+              icon="fa-solid fa-user"
+              title="users"
+              href="/dashboard/users"
             />
           </Aside>
           <Outlet />

@@ -1,0 +1,61 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.box {
+  padding-bottom: calc(var(--main-element-padding, 20px) / 2);
+  &:last-of-type {
+    padding-bottom: calc(var(--main-element-padding, 20px) / 2);
+  }
+  label {
+    font: {
+      size: 1rem;
+      weight: 500;
+    }
+    display: block;
+    padding-bottom: calc(var(--sec-element-padding, 10px) / 2);
+    color: var(--black-color);
+  }
+  .field {
+    @extend %flex--between;
+    @media (min-width: 992px) {
+      justify-content: center;
+      align-items: center;
+    }
+    @media (max-width: 991px) {
+      flex-direction: column;
+    }
+    gap: var(--sec-element-padding, 10px);
+    color: var(--main-color);
+    font-size: 1.5rem;
+    flex-wrap: wrap;
+    span {
+      @extend %border-radius-5;
+      flex: 1;
+      font-size: 1rem;
+      padding: var(--sec-element-padding, 10px)
+        var(--main-element-padding, 20px);
+      background-color: var(--main-bg);
+      color: var(--sec-text-color);
+      display: block;
+      text: {
+        align: center;
+        transform: initial;
+      }
+      &.info {
+        text-align: start;
+      }
+    }
+    .left-sec {
+      flex: 1;
+    }
+    .flex-sec {
+      width: calc((100% - 20px) / 3);
+      @media (max-width: 1199px) {
+        width: calc((100% - 10px) / 2);
+      }
+      @media (max-width: 991px) {
+        width: 100%;
+      }
+    }
+  }
+}

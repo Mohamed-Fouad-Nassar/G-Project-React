@@ -5,10 +5,11 @@ import FootSection from "../../components/FootSection/FootSection";
 import useSetTitle from "../../hooks/useSetTitle";
 
 import doctor1 from "../../assets/images/doctors/doctor-image-4.jpg";
-import doctor2 from "../../assets/images/doctors/doctor-image-2.jpg";
-import doctor3 from "../../assets/images/doctors/doctor-image-3.jpg";
 
 import styles from "./doctors.module.scss";
+
+import { useSelector } from "react-redux";
+import ErrorPage from "../ErrorPage/ErrorPage";
 
 function Doctors() {
   useSetTitle("Doctors");
@@ -20,66 +21,55 @@ function Doctors() {
   const doctorDes = `lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores et
           reiciendis voluptatum, amet est natus quaerat ducimus`;
 
+  const { loading, err, doctors } = useSelector((state) => state.doctors);
+
   const handleClick = () => {
     console.log("doctors handle click function");
   };
 
-  return (
+  return loading ? (
+    <div className="loading"></div>
+  ) : err ? (
+    <ErrorPage err={err} />
+  ) : (
     <>
       <div className={`${styles.container} container`}>
         <HeadSection title="doctors" description={description} />
         <div className={styles["sec-body"]}>
-          <DoctorsMainCard
-            imgSrc={doctor1}
-            name="doctor 1 name"
-            specialty="doctor 1 specialty"
-            description={doctorDes}
-            info={{
-              location: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit molestiae vitae nam. `,
-              links: {
-                facebook: "https://www.facebook.com/",
-                instagram: "https://www.instagram.com/",
-                twitter: "https://www.twitter.com/",
-                email: "leo@gmail.com",
-                whatsapp: "552196312XXXX",
-                phoneNumber: "+18475555555",
-              },
-            }}
-          />
-          <DoctorsMainCard
-            imgSrc={doctor2}
-            name="doctor 2 name"
-            specialty="doctor 2 specialty"
-            description={doctorDes}
-            info={{
-              location: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit molestiae vitae nam. `,
-              links: {
-                facebook: "https://www.facebook.com/",
-                instagram: "https://www.instagram.com/",
-                twitter: "https://www.twitter.com/",
-                email: "leo@gmail.com",
-                whatsapp: "552196312XXXX",
-                phoneNumber: "+18475555555",
-              },
-            }}
-          />
-          <DoctorsMainCard
-            imgSrc={doctor3}
-            name="doctor 3 name"
-            specialty="doctor 3 specialty"
-            description={doctorDes}
-            info={{
-              location: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit molestiae vitae nam. `,
-              links: {
-                facebook: "https://www.facebook.com/",
-                instagram: "https://www.instagram.com/",
-                twitter: "https://www.twitter.com/",
-                email: "leo@gmail.com",
-                whatsapp: "552196312XXXX",
-                phoneNumber: "+18475555555",
-              },
-            }}
-          />
+          {doctors.map(
+            ({
+              id,
+              name,
+              // image,
+              specialty,
+              email,
+              location,
+              phoneNumber,
+              facebook,
+              instagram,
+              twitter,
+              whatsapp,
+            }) => (
+              <DoctorsMainCard
+                key={id}
+                imgSrc={doctor1}
+                name={name}
+                specialty={specialty}
+                description={doctorDes}
+                info={{
+                  location,
+                  links: {
+                    facebook,
+                    instagram,
+                    twitter,
+                    email,
+                    whatsapp,
+                    phoneNumber,
+                  },
+                }}
+              />
+            )
+          )}
         </div>
         <FootSection onClick={handleClick} />
       </div>

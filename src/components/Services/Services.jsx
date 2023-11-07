@@ -9,7 +9,7 @@ function Services() {
               exercitationem.`;
 
   return (
-    <section className={styles.services} id="services">
+    <section className={styles.services}>
       <div className={`${styles.container} container`}>
         <HeadSection title="our services" description={description} />
         <div className={styles["sec-body"]}>

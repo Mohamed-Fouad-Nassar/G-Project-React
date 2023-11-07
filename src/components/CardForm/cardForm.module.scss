@@ -30,21 +30,25 @@
     }
   }
   .form {
-    padding: var(--main-element-padding, 20px) {
-      top: 0;
-    }
-    button {
-      @extend %flex-center-center;
-      gap: var(--sec-element-padding, 10px);
-      width: 100%;
-      &:hover {
-        .f-icon {
-          color: var(--main-color);
+    // padding: var(--main-element-padding, 20px) {
+    //   top: 0;
+    // }
+    form {
+      padding-top: 0 !important;
+      button {
+        @extend %flex-center-center;
+        margin-top: 0 !important;
+        gap: var(--sec-element-padding, 10px);
+        width: 100%;
+        &:hover {
+          .f-icon {
+            color: var(--main-color);
+          }
         }
-      }
-      .f-icon {
-        color: var(--const-white-color);
-        font-size: 1.1rem;
+        .f-icon {
+          color: var(--const-white-color);
+          font-size: 1.1rem;
+        }
       }
     }
   }

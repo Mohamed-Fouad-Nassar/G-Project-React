@@ -1,0 +1,89 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.modal {
+  @extend %flex-center-center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  margin-top: calc(var(--main-element-padding, 20px) * 2);
+  z-index: -1;
+  &.active {
+    z-index: 1000;
+    .overlay {
+      width: 100vw;
+      height: 100vh;
+      display: block;
+    }
+    .data {
+      transform: scale(1);
+      -webkit-transform: scale(1);
+      -moz-transform: scale(1);
+      -ms-transform: scale(1);
+      -o-transform: scale(1);
+    }
+  }
+  .overlay {
+    @extend %zero-transition;
+    @extend %user-select-none;
+    @extend %translate-50;
+    background-color: var(--transparent-color);
+    display: none;
+    position: fixed;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    z-index: 100;
+  }
+  .data {
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+    @extend %transition;
+    @extend %border-radius-5;
+    max-height: calc(100vh - 90px) !important;
+    overflow-y: auto;
+    transform: scale(0);
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -ms-transform: scale(0);
+    -o-transform: scale(0);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    background-color: var(--sec-bg);
+    box-shadow: var(--main-box-shadow);
+    width: 900px;
+    z-index: 200;
+    @media (max-width: 991px) {
+      width: 750px;
+    }
+    @media (max-width: 767px) {
+      height: calc(100vh - 140px) !important;
+      width: 550px;
+    }
+    @media (max-width: 575px) {
+      width: 330px;
+    }
+    .top-sec {
+      padding: var(--sec-element-padding, 10px)
+        var(--main-element-padding, 20px);
+      position: sticky;
+      z-index: 10000;
+      top: 0;
+      left: 0;
+      text-align: center;
+      background-color: var(--sec-bg);
+      border-bottom: 1px solid var(--main-bg);
+      h2 {
+        font-size: 1.4rem;
+        color: var(--black-color);
+      }
+    }
+  }
+}

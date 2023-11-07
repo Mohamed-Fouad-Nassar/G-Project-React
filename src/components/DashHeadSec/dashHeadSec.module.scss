@@ -2,6 +2,7 @@
 @use "../../assets/global_scss/helpers" as *;
 
 .sec-head {
+  padding-bottom: 0 !important;
   h2 {
     margin-bottom: calc(var(--main-element-padding, 20px) * 2);
     position: relative;

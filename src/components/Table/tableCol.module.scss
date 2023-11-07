@@ -2,9 +2,12 @@
 @use "../../assets/global_scss/helpers" as *;
 
 .item {
-  // @include table-body-item();
-
   padding-top: 2px;
+  &:nth-child(even) {
+    span {
+      background-color: var(--input-bg);
+    }
+  }
   @include table-head();
   > span {
     background-color: var(--sec-bg);
@@ -27,15 +30,27 @@
         color: var(--const-white-color);
         width: 30px;
         height: 30px;
+        // background-color: var(--main-color);
+        // &:hover {
+        //   background-color: var(--sec-color);
+        // }
+        // &.danger {
+        //   background-color: var(--danger-color);
+        //   &:hover {
+        //     background-color: var(--danger-hover-color);
+        //   }
+        // }
+      }
+      a {
         background-color: var(--main-color);
         &:hover {
           background-color: var(--sec-color);
         }
-        &.danger {
-          background-color: var(--danger-color);
-          &:hover {
-            background-color: var(--danger-hover-color);
-          }
+      }
+      button {
+        background-color: var(--danger-color);
+        &:hover {
+          background-color: var(--danger-hover-color);
         }
       }
     }

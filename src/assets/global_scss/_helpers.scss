@@ -257,7 +257,7 @@
 
 @mixin table-head() {
   @extend %flex-center-center;
-  gap: 3px;
+  gap: 1px;
   > span {
     display: block;
     flex: 1;
@@ -276,8 +276,8 @@
       flex: 2;
     }
     &:nth-last-of-type(2) {
-      min-width: 130px !important;
-      max-width: 160px !important;
+      min-width: 160px !important;
+      max-width: 180px !important;
     }
     &:last-of-type {
       flex: 0;

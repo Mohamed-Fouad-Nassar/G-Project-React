@@ -1,0 +1,21 @@
+@use "../../assets/global_scss/variables" as *;
+@use "../../assets/global_scss/helpers" as *;
+
+.cancel {
+  @extend %flex-center-center;
+  @extend %border-radius-50;
+  border: none;
+  outline: none;
+  background-color: var(--danger-color);
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: var(--sec-element-padding, 10px);
+  right: var(--sec-element-padding, 10px);
+  &:hover {
+    background-color: var(--danger-hover-color);
+  }
+  .f-icon {
+    color: var(--const-white-color);
+  }
+}

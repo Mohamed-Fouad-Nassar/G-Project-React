@@ -4,9 +4,10 @@ import styles from "./doctorsCard.module.scss";
 
 function DoctorsCard({
   imgSrc,
-  title,
-  department,
+  name,
+  specialty,
   facebook,
+  instagram,
   twitter,
   location,
   whatsapp,
@@ -14,14 +15,17 @@ function DoctorsCard({
 }) {
   return (
     <article className={styles.box}>
-      <img src={imgSrc} alt={`${imgSrc}-image`} />
+      <img src={imgSrc} alt={`${name}-image`} />
       <div className={styles.info}>
-        <h5>{title}</h5>
-        <p>{department}</p>
+        <h5>{name}</h5>
+        <p>{specialty}</p>
         <div className={styles.contact}>
           {facebook && (
             <SocialMediaLink href={facebook} icon={`fa-brands fa-facebook-f`} />
           )}
+          {/* {instagram && (
+            <SocialMediaLink href={instagram} icon={`fa-brands fa-instagram`} />
+          )} */}
           {twitter && (
             <SocialMediaLink href={twitter} icon={`fa-brands fa-twitter`} />
           )}

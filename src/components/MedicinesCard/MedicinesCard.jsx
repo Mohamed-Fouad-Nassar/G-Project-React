@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import styles from "./medicinesCard.module.scss";
 
 function MedicinesCard({ imgSrc, title, category, pharmacies }) {
@@ -17,9 +19,9 @@ function MedicinesCard({ imgSrc, title, category, pharmacies }) {
         </div>
         <div className={styles["pharmacies-name"]}>
           {pharmacies.map(({ name, id }) => (
-            <a key={id} href={`#pharmacies-${id}`}>
+            <Link key={id} to={`/pharmacies/${id}`}>
               {name}
-            </a>
+            </Link>
           ))}
         </div>
       </div>

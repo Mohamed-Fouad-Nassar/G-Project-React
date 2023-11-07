@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import styles from "./button.module.scss";
 
-function Button({ type, href, children, secondary, onClick }) {
+function Button({ type, href, children, secondary, onClick, loading }) {
   if (type === "link")
     return (
       <Link
@@ -15,6 +15,7 @@ function Button({ type, href, children, secondary, onClick }) {
   else
     return (
       <button
+        disabled={loading}
         type={type}
         className={`${secondary ? styles["sec-btn"] : styles["main-btn"]}`}
         onClick={onClick}

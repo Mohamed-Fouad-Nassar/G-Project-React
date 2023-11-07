@@ -8,8 +8,15 @@ import styles from "./card.module.scss";
 
 function Card({ imgSrc, id, title, brief, description, info }) {
   const { location, links } = info;
-  const { facebook, twitter, locationLink, email, whatsapp, phoneNumber } =
-    links;
+  const {
+    facebook,
+    twitter,
+    instagram,
+    locationLink,
+    email,
+    whatsapp,
+    phoneNumber,
+  } = links;
 
   return (
     <article className={styles.box}>
@@ -47,6 +54,12 @@ function Card({ imgSrc, id, title, brief, description, info }) {
                 )}
                 {twitter && (
                   <SocialMediaLink href={twitter} icon="fa-brands fa-twitter" />
+                )}
+                {instagram && (
+                  <SocialMediaLink
+                    href={instagram}
+                    icon="fa-brands fa-instagram"
+                  />
                 )}
                 {locationLink && (
                   <SocialMediaLink

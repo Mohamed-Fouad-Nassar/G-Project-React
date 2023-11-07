@@ -3,3 +3,150 @@
 @use "./assets/global_scss/helpers" as *;
 @use "./assets/global_scss/animations" as *;
 @use "./assets/global_scss/global" as *;
+
+/* loading screen */
+.loading {
+  &::before {
+    content: "";
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border: 5px var(--main-color);
+    border-style: dashed dotted;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    animation: rotate-right 3s linear infinite reverse;
+    -webkit-animation: rotate-right 3s linear infinite reverse;
+  }
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -75px;
+  margin-left: -75px;
+  border: 5px var(--main-color);
+  border-style: dotted solid;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  animation: rotate-right 6s linear infinite;
+  -webkit-animation: rotate-right 6s linear infinite;
+}
+
+@-webkit-keyframes rotate-right {
+  0% {
+    transform: rotate(0);
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -o-transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate-right {
+  0% {
+    transform: rotate(0);
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -o-transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+  }
+}
+
+/* sweet alert styles */
+
+// all sweet alerts bg
+.swal2-popup.swal2-modal.swal2-icon-warning.swal2-show,
+.swal2-popup.swal2-modal.swal2-icon-success.swal2-show {
+  background-color: var(--main-bg);
+  // color: var(--sec-text-color);
+  color: var(--black-color);
+}
+
+// warning icon
+.swal2-icon.swal2-warning.swal2-icon-show {
+  color: var(--danger-color);
+  border-color: var(--danger-color);
+}
+
+// confirm btn
+button.swal2-confirm.swal2-styled.swal2-default-outline {
+  background-color: var(--main-color) !important;
+}
+div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm:focus {
+  box-shadow: 0 0 0 3px var(--main-color-half) !important;
+}
+
+// cancel btn
+button.swal2-cancel.swal2-styled.swal2-default-outline {
+  background-color: var(--danger-color) !important;
+}
+div:where(.swal2-container) button:where(.swal2-styled).swal2-cancel:focus {
+  box-shadow: 0 0 0 3px var(--danger-color-half) !important;
+}
+
+// ok btn
+button.swal2-confirm.swal2-styled {
+  background-color: var(--main-color);
+}
+
+// swal success ring
+div:where(.swal2-icon).swal2-success {
+  border-color: var(--main-bg) !important;
+  color: var(--transparent-main-color) !important;
+}
+.swal2-success-circular-line-left,
+.swal2-success-circular-line-right {
+  background-color: var(--main-bg) !important;
+}
+span.swal2-success-line-long,
+span.swal2-success-line-tip {
+  background-color: var(--main-color) !important;
+}
+.swal2-success-ring {
+  border-color: rgba(5, 156, 177, 0.3) !important;
+}
+.swal2-success-fix {
+  background-color: var(--main-bg) !important;
+}
+
+// popup bg
+.swal2-popup.swal2-toast.swal2-icon-success.swal2-show {
+  background-color: var(--main-bg);
+}
+.swal2-timer-progress-bar-container {
+  background-color: var(--sec-bg);
+}
+h2#swal2-title {
+  color: var(--sec-text-color);
+}
+.swal2-timer-progress-bar {
+  background-color: var(--main-color);
+}

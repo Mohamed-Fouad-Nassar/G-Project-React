@@ -12,7 +12,7 @@ function Contact() {
           exercitationem.`;
 
   return (
-    <section className={styles.contacts} id="contacts">
+    <section className={styles.contacts}>
       <div className={`${styles.container} container`}>
         <HeadSection
           isWhite={true}

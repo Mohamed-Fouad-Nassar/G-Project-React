@@ -11,6 +11,8 @@ import medicine2 from "../../assets/images/medicines/Afinitor-image.jpeg";
 import medicine3 from "../../assets/images/medicines/abraxane-image.jpg";
 
 import styles from "./medicines.module.scss";
+import { useSelector } from "react-redux";
+import ErrorPage from "../ErrorPage/ErrorPage";
 
 function Medicines() {
   useSetTitle("Medicines");
@@ -28,7 +30,13 @@ function Medicines() {
     menuRef.current.classList.toggle(`${styles.open}`);
   };
 
-  return (
+  let { medicines, loading, err } = useSelector((state) => state.medicines);
+
+  return err ? (
+    <ErrorPage err={err} />
+  ) : loading ? (
+    <div className="loading"></div>
+  ) : (
     <div className={`${styles.container} container`}>
       <HeadSection title="medicines" description={description} />
       <div className={styles["sec-body"]}>
@@ -64,64 +72,15 @@ function Medicines() {
               </ul>
             </div>
             <div className={styles["right-side"]}>
-              <MedicinesCard
-                imgSrc={medicine1}
-                title="medicine 1 title"
-                category="medicine 1 category"
-                pharmacies={[
-                  { name: "ph1", id: "11" },
-                  { name: "ph2", id: "12" },
-                ]}
-              />
-              <MedicinesCard
-                imgSrc={medicine2}
-                title="medicine 2 title"
-                category="medicine 2 category"
-                pharmacies={[
-                  { name: "ph1", id: "11" },
-                  { name: "ph2", id: "12" },
-                ]}
-              />
-              <MedicinesCard
-                imgSrc={medicine3}
-                title="medicine 3 title"
-                category="medicine 3 category"
-                pharmacies={[
-                  { name: "ph1", id: "11" },
-                  { name: "ph2", id: "12" },
-                  { name: "ph3", id: "13" },
-                  { name: "ph4", id: "14" },
-                ]}
-              />
-              <MedicinesCard
-                imgSrc={medicine1}
-                title="medicine 4 title"
-                category="medicine 1 category"
-                pharmacies={[
-                  { name: "ph1", id: "11" },
-                  { name: "ph2", id: "12" },
-                ]}
-              />
-              <MedicinesCard
-                imgSrc={medicine2}
-                title="medicine 5 title"
-                category="medicine 2 category"
-                pharmacies={[
-                  { name: "ph1", id: "11" },
-                  { name: "ph2", id: "12" },
-                ]}
-              />
-              <MedicinesCard
-                imgSrc={medicine3}
-                title="medicine 6 title"
-                category="medicine 3 category"
-                pharmacies={[
-                  { name: "ph1", id: "11" },
-                  { name: "ph2", id: "12" },
-                  { name: "ph3", id: "13" },
-                  { name: "ph4", id: "14" },
-                ]}
-              />
+              {medicines.map(({ id, name, category, pharmacies }) => (
+                <MedicinesCard
+                  key={id}
+                  imgSrc={medicine1}
+                  title={name}
+                  category={category}
+                  pharmacies={pharmacies}
+                />
+              ))}
             </div>
           </div>
         </section>

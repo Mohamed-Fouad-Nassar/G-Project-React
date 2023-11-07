@@ -1,60 +1,6 @@
 @use "../../assets/global_scss/variables" as *;
 @use "../../assets/global_scss/helpers" as *;
 
-// header {
-//   box-shadow: var(--header-box-shadow);
-//   background-color: var(--sec-bg);
-//   -webkit-backdrop-filter: blur(calc(var(--sec-element-padding) / 2));
-//   backdrop-filter: blur(calc(var(--sec-element-padding) / 2));
-//   padding: 0;
-//   width: 100%;
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   z-index: 1000;
-//   .container {
-//     display: grid;
-//     align-items: center;
-//     justify-content: space-between;
-//     grid-template-columns: repeat(3, auto);
-//     gap: var(--sec-element-padding, 10px);
-//     @media (max-width: 767px) {
-//       padding-top: calc(var(--sec-element-padding) / 2);
-//       grid-template-columns: auto 1fr auto;
-//       grid-template-rows: repeat(2, 1fr);
-//       grid-template-areas: "logo . account" "navLinK navLinK navLinK";
-//     }
-
-//   }
-// &.scroll {
-//   background-color: var(--transparent-color);
-//   .container {
-//     nav {
-//       ul {
-//         li {
-//           &.active {
-//             background-color: var(--sec-bg);
-//             a {
-//               color: var(--main-color);
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
-//   &.scroll_down {
-//     @media (max-width: 767px) {
-//       top: -70px !important;
-//     }
-//   }
-//   &.scroll_up {
-//     @media (max-width: 767px) {
-//       top: 0 !important;
-//     }
-//   }
-// }
-
 header {
   background-color: var(--sec-bg);
   box-shadow: var(--header-box-shadow);
@@ -123,6 +69,7 @@ header {
       }
     }
     .controls {
+      @extend %transition;
       @extend %flex-center-between;
       flex: 1;
       gap: var(--sec-element-padding, 10px);

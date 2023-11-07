@@ -1,14 +1,12 @@
+import { useSelector } from "react-redux";
 import { SwiperSlide } from "swiper/react";
 
 import HeadSection from "../HeadSection/HeadSection";
+import FootSection from "../FootSection/FootSection";
 import CharitiesCard from "../CharitiesCard/CharitiesCard";
 import SwiperSlider from "../SwiperSlider/SwiperSlider";
 
 import charity1 from "../../assets/images/charities/charities-image-1.jpg";
-import charity2 from "../../assets/images/charities/charities-image-2.jpg";
-import charity3 from "../../assets/images/charities/charities-image-3.jpg";
-import charity4 from "../../assets/images/charities/charities-image-4.jpg";
-import charity5 from "../../assets/images/charities/charities-image-5.jpg";
 
 import styles from "./charities.module.scss";
 
@@ -17,12 +15,7 @@ function Charities() {
           consequatur ullam excepturi dolores repellat, minus assumenda
           exercitationem.`;
 
-  const charityDescription = `charity description Lorem ipsum dolor sit, amet consectetur
-                    adipisicing elit. Suscipit, eaque quaerat temporibus, atque
-                    odio quia non laborum earum facilis. charity description
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Suscipit, eaque quaerat temporibus, atque odio quia non
-                    laborum earum facilis.`;
+  const { charities } = useSelector((state) => state.charities);
 
   return (
     <section className={styles.charities} id="charities">
@@ -30,6 +23,17 @@ function Charities() {
         <HeadSection title="charities" description={description} />
         <div className={styles["sec-body"]}>
           <SwiperSlider>
+            {charities.slice(0, 10).map(({ id, name, description }) => (
+              <SwiperSlide key={id}>
+                <CharitiesCard
+                  imgSrc={charity1}
+                  id={id}
+                  title={name}
+                  description={description}
+                />
+              </SwiperSlide>
+            ))}
+            {/*
             <SwiperSlide>
               <CharitiesCard
                 imgSrc={charity1}
@@ -70,8 +74,10 @@ function Charities() {
                 description={charityDescription}
               />
             </SwiperSlide>
+            */}
           </SwiperSlider>
         </div>
+        <FootSection type="link" targetPage="/charities" />
       </div>
     </section>
   );

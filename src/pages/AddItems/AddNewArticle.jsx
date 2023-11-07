@@ -24,7 +24,7 @@ function AddNewArticle() {
         <BackBtn />
       </div>
       <div className={styles["sec-body"]}>
-        <form action="">
+        <form onSubmit={submitForm}>
           <div className={styles["sec-flex"]}>
             <section className={styles.info}>
               <h2>article information</h2>
